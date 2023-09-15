@@ -1,0 +1,45 @@
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/dark";
+
+.app {
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--primary-color);
+    font: var(--font-m);
+}
+
+.content-page {
+    display: flex;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;               /* scrollbar width */
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--light-bg-redesigned);        /* track color */
+}
+
+*::-webkit-scrollbar-thumb {
+    border: 1px solid var(--accent-redesigned);  /* padding around thumb */
+    border-radius: 20px;       /* thumb border radius */
+    background-color: var(--icon-redesigned);    /* thumb color */
+}
+
+.app *::-webkit-scrollbar {
+    width: 12px;               /* scrollbar width */
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--card-bg);        /* track color */
+}
+
+.app *::-webkit-scrollbar-thumb {
+    border: 2px solid var(--primary-color);  /* padding around thumb */
+    border-radius: 20px;       /* thumb border radius */
+    background-color: var(--inverted-primary-color);    /* thumb color */
+}

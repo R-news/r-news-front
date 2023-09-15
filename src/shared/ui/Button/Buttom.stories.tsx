@@ -14,11 +14,33 @@ const meta = {
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+
+type Story = StoryObj<typeof Button>;
 
 
 export const Primary: Story = {
   args: {
-        children: 'Text',
+    children: 'Text',
   },
 };
+
+export const Clear: Story = {
+    args: {
+      children: 'Text',
+      variant: 'clear'
+    },
+  };
+
+  export const Outline: Story = {
+    args: {
+      children: 'Text',
+      variant: 'outline'
+    },
+  };
+
+  export const Filled: Story = {
+    args: {
+      children: 'Text',
+      variant: 'filled'
+    },
+  };

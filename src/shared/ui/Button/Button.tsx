@@ -4,38 +4,39 @@ import {
     forwardRef,
     ReactNode,
 } from 'react';
-import cls from './Button.module.scss';
+
 import { classNames } from '@/shared/lib/classNames';
+
+import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
 export type ButtonColor = 'normal' | 'success' | 'error';
-
 export type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     /**
-     * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
+     * Button theme. Responsible for visual aspects (bordered, no styles, opposite theme color of the application, etc.)
      */
     variant?: ButtonVariant;
     /**
-     * Флаг, делающий кнопку квадратной
+     * A flag that makes the button square.
      */
     square?: boolean;
     /**
-     * Размер кнопки в соответствии с дизайн системой
+     * Button size according to the design system.
      */
     size?: ButtonSize;
     /**
-     * Флаг, отвечающий за работу кнопки
+     * A flag that controls the button's functionality.
      */
     disabled?: boolean;
     /**
-     * Содержимое кнопки
+     * Button content.
      */
     children?: ReactNode;
     /**
-     * Увеличивает кнопку на всю свободную ширину
+     * Expands the button to full width.
      */
     fullWidth?: boolean;
 
@@ -45,6 +46,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     addonRight?: ReactNode;
 }
 
+// eslint-disable-next-line react/display-name
 export const Button = forwardRef(
     (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         const {
