@@ -2,33 +2,120 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+```
+npm install - This command is used to install dependencies.
+npm run dev - This command is used to start the frontend project in development mode.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Скрипты
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   npm run dev - Start the frontend project.
+-   npm run build - Build in production mode.
+-   npm start - Start in production mode.
+-   npm run prettier - Check TypeScript files with a linter.
+-   npm run lint:ts - Check TypeScript files with a linter.
+-   npm run lint:ts:fix - Fix TypeScript files with a linter.
+-   npm run lint:scss - Check SCSS files with a style linter.
+-   npm run lint:scss:fix - Fix SCSS files with a style linter.
+-   npm run test:unit - Run unit tests using Jest.
+-   npm run storybook - Start Storybook.
+-   npm run storybook:build - Build Storybook.
+-   npm run prepare - Pre-commit hooks.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## Project Architecture
 
-To learn more about Next.js, take a look at the following resources:
+The project is structured following the Feature Sliced Design methodology.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Link to documentation - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Working with Translations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses the i18next library for handling translations.
+Translation files are stored in public/locales.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For a smoother workflow, we recommend installing the plugin for example i18n ally for vscode.
+
+i18next Documentation - [https://react.i18next.com/](https://react.i18next.com/)
+
+---
+
+## Tests
+
+In the project, 2 types of tests are used:
+
+1. Regular unit tests with Jest - npm run test:unit
+2. Component tests with React Testing Library - npm run test:unit
+
+More about tests - [test docs](/config//docs//tests.md)
+
+---
+
+## Linting
+
+The project uses ESLint for TypeScript code checking and Stylelint for style-related files.
+
+##### Running Linters
+
+-   `npm run lint:ts` - TypeScript file linting check.
+-   `npm run lint:ts:fix` - Fixing TypeScript files with linting.
+-   `npm run lint:scss` - SCSS file style linting check.
+-   `npm run lint:scss:fix` - Fixing SCSS files with style linting.
+
+---
+
+## Storybook
+
+In the project, story cases are described for each component.
+
+The file with story cases is created next to the component with the extension .stories.tsx.
+
+You can run Storybook with the command:
+
+-   `npm run storybook`
+
+For more details about [Storybook](/config//docs/storybook.md)
+
+## Project configuration
+
+TODO
+
+---
+
+## CI pipeline and pre commit hooks
+
+Ci pipeline TODO
+
+In pre-commit hooks, we check the project using linters. The configuration is located in the /.husky directory.
+
+---
+
+### Работа с feature-flag
+
+Разрешено использование feature flags только с помощью хелпера toggleFeatures
+
+в него передается объект с опциями
+
+{
+name: название фича-флага,
+on: функция, которая отработает после Включения фичи
+of: функция, которая отработает после ВЫключения фичи
+}
+
+Для автоматического удаления фичи использовать скрипт remove-feature.ts,
+который принимает 2 аргумента
+
+1. Название удаляемого фича-флага
+2. Состояние (on\off)
+
+---
+
+## Entities
+
+-   [User](/src/entities/User)
+
+## Features

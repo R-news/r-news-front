@@ -1,12 +1,38 @@
 /** @type {import('next').NextConfig} */
-// const nextConfig = {}
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = {
+const nextConfig = {}
+function getApiUrl(dev) {
+  return dev ? 'http://localhost:3000/' : 'apiurl'
+}
+
+module.exports = withBundleAnalyzer({
     webpack: (
       config,
       { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
     ) => {
-        console.log(dev)
+
+      const apiUrl = getApiUrl(dev);
+
+      config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(dev),
+            __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify('frontend'),
+        })
+    );
+
+    if(dev){
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: true,
+    })
+    }
       return config
     },
-  }
+  })
+
+
