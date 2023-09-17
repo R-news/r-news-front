@@ -5,7 +5,7 @@ import {
     ReactNode,
 } from 'react';
 
-import { classNames } from '@/shared/lib/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './Button.module.scss';
 
@@ -16,7 +16,7 @@ export type ButtonSize = 'm' | 'l' | 'xl';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     /**
-     * Button theme. Responsible for visual aspects (bordered, no styles, opposite theme color of the application, etc.)
+     * Button variant. Responsible for visual aspects (bordered, no styles, opposite theme color of the application, etc.)
      */
     variant?: ButtonVariant;
     /**

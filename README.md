@@ -10,18 +10,18 @@ npm run dev - This command is used to start the frontend project in development 
 
 ## Скрипты
 
--   npm run dev - Start the frontend project.
--   npm run build - Build in production mode.
--   npm start - Start in production mode.
--   npm run prettier - Check TypeScript files with a linter.
--   npm run lint:ts - Check TypeScript files with a linter.
--   npm run lint:ts:fix - Fix TypeScript files with a linter.
--   npm run lint:scss - Check SCSS files with a style linter.
--   npm run lint:scss:fix - Fix SCSS files with a style linter.
--   npm run test:unit - Run unit tests using Jest.
--   npm run storybook - Start Storybook.
--   npm run storybook:build - Build Storybook.
--   npm run prepare - Pre-commit hooks.
+-   `npm run dev` - Start the frontend project.
+-   `npm run build` - Build in production mode.
+-   `npm start - Start` in production mode.
+-   `npm run prettier` - Check TypeScript files with a linter.
+-   `npm run lint:ts` - Check TypeScript files with a linter.
+-   `npm run lint:ts:fix` - Fix TypeScript files with a linter.
+-   `npm run lint:scss` - Check SCSS files with a style linter.
+-   `npm run lint:scss:fix` - Fix SCSS files with a style linter.
+-   `npm run test:unit` - Run unit tests using Jest.
+-   `npm run storybook` - Start Storybook.
+-   `npm run storybook:build` - Build Storybook.
+-   `npm run prepare` - Pre-commit hooks.
 
 ---
 

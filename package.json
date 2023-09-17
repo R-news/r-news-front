@@ -25,9 +25,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.5",
+    "i18next": "^23.5.1",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.2.2",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-i18next": "^13.2.2",
     "react-redux": "^8.1.2"
   },
   "devDependencies": {
@@ -59,6 +63,7 @@
     "prettier": "3.0.3",
     "sass": "^1.67.0",
     "storybook": "^7.4.2",
+    "storybook-addon-themes": "^6.1.0",
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",

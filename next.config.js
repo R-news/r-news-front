@@ -20,6 +20,7 @@ module.exports = withBundleAnalyzer({
       config.plugins.push(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(dev),
+            __IS_SERVER__: JSON.stringify(isServer),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify('frontend'),
         })
