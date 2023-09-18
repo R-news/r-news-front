@@ -1,10 +1,12 @@
 import '@/global/styles/index.scss';
-import '@/shared/config/i18n/i18n';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { cookies } from 'next/headers';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
+import { Locale } from '@/shared/config/i18n/i18n';
+import { Navbar } from '@/widgets/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,12 +17,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    params,
 }: {
     children: React.ReactNode;
+    params: { lang: Locale };
 }) {
+    const cookieStore = cookies();
+    const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
+
     return (
-        <html lang="en">
+        <html lang={params.lang} data-theme={themeCookie}>
             <body className={`app`}>
+                <Navbar themeCookie={themeCookie} lang={params.lang} />
                 <AppProviders>{children}</AppProviders>
             </body>
         </html>

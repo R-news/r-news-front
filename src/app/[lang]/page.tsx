@@ -1,5 +1,3 @@
-import { LangSwitcher } from '@/features/LangSwitcher';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { Button } from '@/shared/ui/Button';
 import { Sidebar } from '@/widgets/Sidebar';
 
@@ -9,8 +7,6 @@ export default function Home() {
         <main>
             <Sidebar />
             <Button>Test</Button>
-            <ThemeSwitcher />
-            <LangSwitcher />
         </main>
     );
 }

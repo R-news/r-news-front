@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server'
 
-const TEN_YEARS_IN_SECONDS = 60 * 60 * 24 * 365 * 10
+import { TEN_YEARS_IN_SECONDS } from '@/shared/const/CookieTime'
 
 export const POST = async (request: Request) => {
 	const origin = request.headers.get('origin')

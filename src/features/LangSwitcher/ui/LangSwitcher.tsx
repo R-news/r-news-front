@@ -1,25 +1,20 @@
 'use client';
-/* eslint-disable react/display-name */
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/shared/ui/Button';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface LangSwitcherProps {
-    className?: string;
-    short?: boolean;
+    lang: string;
 }
 
-export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
-    const { t, i18n } = useTranslation();
-
-    const toggle = () => {
-        i18n.changeLanguage(i18n.language === 'ua' ? 'en' : 'ua');
+export const LangSwitcher = ({ lang }: LangSwitcherProps) => {
+    const pathName = usePathname();
+    const onClick = () => {
+        if (!pathName) return '/';
+        const segments = pathName.split('/');
+        segments[1] = segments[1] === 'en' ? 'ua' : 'en';
+        return segments.join('/');
     };
 
-    return (
-        <Button onClick={toggle} variant="clear">
-            {t('Language')}
-        </Button>
-    );
-});
+    return <Link href={onClick()}>{lang}</Link>;
+};

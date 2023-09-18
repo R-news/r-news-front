@@ -1,8 +1,7 @@
-import { ThemeProvider } from '@/global/providers/ThemeProvider';
-import { Theme } from '@/shared/const/theme';
+// import { Theme } from '@/shared/const/theme';
 
-const ThemeDecorator = (storyFn: any) => (
-    <ThemeProvider initialValue={Theme.DARK}>{storyFn()}</ThemeProvider>
-);
+// const ThemeDecorator = (storyFn: any) => (
+//     <ThemeProvider initialValue={Theme.DARK}>{storyFn()}
+// );
 
-export default ThemeDecorator;
+// export default ThemeDecorator;
