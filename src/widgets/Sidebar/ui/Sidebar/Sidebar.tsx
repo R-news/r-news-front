@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { Locale } from '@/shared/config/i18n/i18n';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/Stack';
 
 import cls from './Sidebar.module.scss';
 
