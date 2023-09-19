@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server'
 import { i18n } from '@/shared/config/i18n/i18n'
 
 function getLocale(request: NextRequest): string | undefined {
+
   const negotiatorHeaders: Record<string, string> = {}
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
 

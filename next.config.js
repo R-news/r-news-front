@@ -15,23 +15,46 @@ module.exports = withBundleAnalyzer({
       { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
     ) => {
 
-      const apiUrl = getApiUrl(dev);
-
-      config.plugins.push(
+    //modules settings
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [{
+          loader: '@svgr/webpack',
+          options: {
+              icon: true,
+              svgoConfig: {
+                  plugins: [
+                      {
+                          name: 'convertColors',
+                          params: {
+                              currentColor: true,
+                          }
+                      }
+                  ]
+              }
+          }
+      }],
+  })
+    
+      //plugins settings
+    config.plugins.push(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(dev),
             __IS_SERVER__: JSON.stringify(isServer),
-            __API__: JSON.stringify(apiUrl),
+            __API__: JSON.stringify(getApiUrl(dev)),
             __PROJECT__: JSON.stringify('frontend'),
         })
     );
 
+    //dev settings
     if(dev){
       new CircularDependencyPlugin({
         exclude: /node_modules/,
         failOnError: true,
     })
     }
+
+
       return config
     }
   })

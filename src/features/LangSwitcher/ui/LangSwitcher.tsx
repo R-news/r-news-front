@@ -16,5 +16,6 @@ export const LangSwitcher = ({ lang }: LangSwitcherProps) => {
         return segments.join('/');
     };
 
+    //@ts-ignore
     return <Link href={onClick()}>{lang}</Link>;
 };

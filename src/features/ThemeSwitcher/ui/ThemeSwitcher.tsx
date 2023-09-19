@@ -24,6 +24,7 @@ const deriveNextTheme = (currentTheme: string) => {
 
 interface ThemeSwitcherProps {
     themeCookie: string;
+    lang: string;
 }
 
 export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
@@ -45,7 +46,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
 
         setTheme(nextTheme);
 
-        await fetch('ua/api/theme', {
+        await fetch(`${__API__}ua/api/theme`, {
             method: 'POST',
             body: JSON.stringify({ theme: nextTheme }),
             headers: new Headers({

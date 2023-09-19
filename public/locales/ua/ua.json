@@ -1,5 +1,8 @@
 {
   "navbar": {
             "Language": "EN"
+ },
+ "bookmarksPage": {
+    "subscription": "Підписки"  
  }
 }

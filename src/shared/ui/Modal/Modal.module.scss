@@ -1,0 +1,46 @@
+.icon{
+    margin-left: auto;
+}
+
+.overlay {
+    position: fixed;
+    background: var(--color-overlay);
+    inset: 0;
+}
+
+.container {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+    padding: 15px;
+        inset: 0;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto; 
+    border-radius: 0.25rem; 
+    background-color: var(--modal-bg-color);
+  }
+  
+  .title {
+    margin-bottom: 10px;
+
+    /* Your title styles */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+  }
+  

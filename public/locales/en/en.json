@@ -1,5 +1,8 @@
 {
     "navbar": {
         "Language": "UA"
+      },
+      "bookmarksPage": {
+        "subscription": "Subscriptions"  
       }
 }

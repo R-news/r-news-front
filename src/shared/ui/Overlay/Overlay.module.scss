@@ -1,0 +1,9 @@
+.backdrop{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    z-index: var(--overlay-z-index);
+    inset: 0; 
+}
