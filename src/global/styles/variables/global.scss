@@ -1,7 +1,6 @@
 :root {
-    --font-family-main: consolas, "Times New Roman", serif;
-    --font-family-text-redesigned: 'Nunito Sans', sans-serif;
-    --font-family-header-redesigned: 'Roboto', sans-serif;
+    --font-family-main: var(--font-montserrat), serif;
+    --font-family-header: 'Roboto', sans-serif;
 
     // s
     --font-size-s: 12px;
@@ -23,10 +22,28 @@
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+    // font-weights
+    --font-weight-normal: normal;
+    --font-weight-bold: bold;
+    --font-weight-light: light;
+    --font-weight-thin: 100;
+    --font-weight-extra-light: 200;
+    --font-weight-semi-light: 300;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-extra-bold: 800;
+    --font-weight-black: 900;
+
     // Sizes
     --navbar-height: 60px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+
+
+    // Border Radius
+    --border-small: 5px;
+    --border-medium: 10px;
+    --border-big: 20px;
 
     // Index
     --modal-z-index: 1000;
@@ -34,6 +51,7 @@
 
     // Colors
     --color-accent: #2F9FF8;
+    --color-accent-opacity: rgba(47 159 248 / 10%);
     --color-white: #fff;
     --color-overlay: rgba(0 0 0 / 60%);
     --color-signal-positive-default: #33A03E;

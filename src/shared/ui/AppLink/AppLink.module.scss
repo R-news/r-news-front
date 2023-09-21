@@ -1,0 +1,11 @@
+.AppLink{
+    padding: 10px;
+    border-radius: var(--border-medium);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.isActive{
+    background: var(--color-accent-opacity);
+    color: var(--color-accent);
+}

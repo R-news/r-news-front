@@ -2,6 +2,11 @@
   "navbar": {
             "Language": "EN"
  },
+ "sidebar": {
+   "Home": "Головна",
+   "Bookmarks": "Закладки",
+   "My feed": "Моя стрічка"
+},
  "bookmarksPage": {
     "subscription": "Підписки"  
  }

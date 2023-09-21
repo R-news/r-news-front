@@ -1,7 +1,7 @@
 import '@/global/styles/index.scss';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
@@ -10,7 +10,13 @@ import { HStack } from '@/shared/ui/Stack';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({
+    weight: ['300', '400', '500', '700'],
+    subsets: ['latin'],
+    display:'swap',
+    fallback: ['Arial', 'sans-serif'],
+    variable: '--font-montserrat'
+  });
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -27,7 +33,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
     return (
-        <html lang={params.lang} data-theme={themeCookie}>
+        <html lang={params.lang} className={`${montserrat.variable}`} data-theme={themeCookie}>
             <body className={`app`}>
                 <Navbar themeCookie={themeCookie} lang={params.lang} />
                 <HStack>
