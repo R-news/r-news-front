@@ -5,13 +5,12 @@ import CrossIcon from '@/shared/assets/icons/cross.svg';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import { Icon } from '../Icon/Icon';
-import { Overlay } from '../Overlay/Overlay';
-import { HStack } from '../Stack/HStack/HStack';
+import { Overlay } from '../Overlay';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
     isOpen?: boolean;
-    onClose: any;
+    onClose: any; //TODO
     classname?: string;
     title?: string;
     description?: string;

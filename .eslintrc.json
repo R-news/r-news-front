@@ -4,11 +4,29 @@
     "plugin:storybook/recommended",
     "prettier"
   ],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "v1"],
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/no-duplicates": "error",
-    "react/display-name": "off"
-  }
+    "react/display-name": "off",
+    "v1/public-api-imports": [
+      "error",
+      {
+          "alias": "@",
+          "testFilesPatterns": [
+              "**/*.test.*",
+              "**/*.story.*",
+              "**/StoreDecorator.tsx"
+          ]
+      }
+  ],
+  "v1/layer-imports": [
+    "error",
+    {
+        "alias": "@",
+        "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+    }
+]
+}
 }

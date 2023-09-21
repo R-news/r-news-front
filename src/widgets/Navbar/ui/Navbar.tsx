@@ -2,7 +2,7 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { getDictionary } from '@/shared/config/i18n/dictionary';
 import { Locale } from '@/shared/config/i18n/i18n';
-import { AppLogo } from '@/shared/ui/AppLogo/AppLogo';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { HStack } from '@/shared/ui/Stack';
 
 import cls from './Navbar.module.scss';

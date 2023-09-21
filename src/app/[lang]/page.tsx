@@ -2,9 +2,9 @@
 import { useState } from 'react';
 
 import ThemeIconDeprecated from '@/shared/assets/icons/bookmark.svg';
-import { PageParams } from '@/shared/types/langType';
+import { PageParams } from '@/shared/types/pageParams';
 import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import { Modal } from '@/shared/ui/Modal';
 
 interface HomePageProps {

@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
-import { PageParams } from '@/shared/types/langType';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { PageParams } from '@/shared/types/pageParams';
+import { HStack } from '@/shared/ui/Stack';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
