@@ -2,8 +2,11 @@
 
 import { MouseEventHandler, useEffect, useState } from 'react';
 
+import Moon from '@/shared/assets/icons/moon.svg';
+import Sun from '@/shared/assets/icons/sun.svg';
 import { Theme, themes } from '@/shared/const/theme';
-import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Switch } from '@/shared/ui/Switch';
 
 const isTheme = (value: unknown): value is Theme =>
     themes.includes(value as Theme);
@@ -24,7 +27,6 @@ const deriveNextTheme = (currentTheme: string) => {
 
 interface ThemeSwitcherProps {
     themeCookie: string;
-    lang: string;
 }
 
 export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
@@ -41,9 +43,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
 
     const nextTheme = deriveNextTheme(theme);
 
-    const onClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
-        event.preventDefault();
-
+    const onClick: MouseEventHandler<HTMLButtonElement> = async () => {
         setTheme(nextTheme);
 
         await fetch(`${__API__}ua/api/theme`, {
@@ -55,5 +55,12 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
         });
     };
 
-    return <Button onClick={onClick}>{theme}</Button>;
+    return (
+        <Switch
+            isChecked={theme !== 'app_light_theme'}
+            onChange={onClick}
+            addonLeft={<Icon Svg={Moon} width={25} height={25} />}
+            addonRight={<Icon Svg={Sun} width={25} height={25} />}
+        />
+    );
 };

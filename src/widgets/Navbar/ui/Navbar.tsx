@@ -14,9 +14,9 @@ export const Navbar = async ({ themeCookie, lang }: NavbarProps) => {
     const { navbar } = await getDictionary(lang);
     return (
         <HStack as="header" className={cls.Navbar} justify="between">
-            <AppLogo />
+            <AppLogo lang={lang} />
             <HStack gap={'16'}>
-                <ThemeSwitcher themeCookie={themeCookie} lang={lang} />
+                <ThemeSwitcher themeCookie={themeCookie} />
                 <LangSwitcher lang={navbar.Language} />
             </HStack>
         </HStack>

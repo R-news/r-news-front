@@ -6,17 +6,18 @@ import { cookies } from 'next/headers';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
 import { PageParams } from '@/shared/types/pageParams';
+import { Footer } from '@/shared/ui/Footer';
 import { HStack } from '@/shared/ui/Stack';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
 const montserrat = Montserrat({
-    weight: ['300', '400', '500', '700'],
+    weight: ['300', '400', '500', '600'],
     subsets: ['latin'],
-    display:'swap',
+    display: 'swap',
     fallback: ['Arial', 'sans-serif'],
-    variable: '--font-montserrat'
-  });
+    variable: '--font-montserrat',
+});
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -33,13 +34,18 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
     return (
-        <html lang={params.lang} className={`${montserrat.variable}`} data-theme={themeCookie}>
+        <html
+            lang={params.lang}
+            className={`${montserrat.variable}`}
+            data-theme={themeCookie}
+        >
             <body className={`app`}>
                 <Navbar themeCookie={themeCookie} lang={params.lang} />
                 <HStack>
                     <Sidebar lang={params.lang} />
                     <AppProviders>{children}</AppProviders>
                 </HStack>
+                <Footer lang={params.lang} />
             </body>
         </html>
     );

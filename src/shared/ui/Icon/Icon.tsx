@@ -7,6 +7,7 @@ interface IconPropsBase {
     classname?: string;
     classnameClickable?: string;
     Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    defaultColor?: boolean;
     height?: number | `${number}`;
     width?: number | `${number}`;
 }
@@ -29,11 +30,14 @@ export const Icon = (props: IconProps) => {
         height = 30,
         width = 30,
         clickable,
+        defaultColor,
     } = props;
 
     const icon = (
         <Svg
-            className={classNames(cls.Icon, {}, [classname])}
+            className={classNames(cls.Icon, { [cls.iconColor]: defaultColor }, [
+                classname,
+            ])}
             width={width}
             height={height}
             onClick={undefined}
