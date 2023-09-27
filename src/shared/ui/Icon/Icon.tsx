@@ -46,13 +46,15 @@ export const Icon = (props: IconProps) => {
 
     if (clickable) {
         return (
-            <Button
-                className={classnameClickable}
-                onClick={props.onClick}
-                variant="clear"
-            >
-                {icon}
-            </Button>
+            <>
+                <Button
+                    className={classnameClickable}
+                    onClick={props.onClick}
+                    variant="clear"
+                >
+                    {icon}
+                </Button>
+            </>
         );
     }
 

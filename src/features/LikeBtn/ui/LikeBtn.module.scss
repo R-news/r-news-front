@@ -1,0 +1,16 @@
+.icon{
+    fill: var(--color-white);
+    stroke: var(--color-accent);
+    transition-property: all;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+
+    &:hover {
+        transform: scale(1.1) rotate(-10deg);
+      }
+
+      &.isLiked{
+        fill: var(--color-accent);
+      }
+}
+

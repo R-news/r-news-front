@@ -19,7 +19,7 @@ type Story = StoryObj<typeof AppLink>;
 export const Primary: Story = {
     args: {
         children: 'Link',
-        href: '/link'
+        href: '/link',
     },
 };
 
@@ -30,4 +30,3 @@ export const Active: Story = {
         isActive: true,
     },
 };
-

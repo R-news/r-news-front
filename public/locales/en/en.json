@@ -1,13 +1,15 @@
 {
     "navbar": {
-        "Language": "UA"
-      },
-      "sidebar": {
+        "Language": "UA",
+        "Profile": "Profile",
+        "Logout": "Logout"
+    },
+    "sidebar": {
         "Home": "Home",
         "Bookmarks": "Bookmarks",
         "My feed": "Me feed"
-     },
-      "bookmarksPage": {
-        "subscription": "Subscriptions"  
-      }
+    },
+    "bookmarksPage": {
+        "subscription": "Subscriptions"
+    }
 }

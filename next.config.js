@@ -9,7 +9,22 @@ function getApiUrl(dev) {
   return dev ? 'http://localhost:3000/' : 'apiurl'
 }
 
+function getFrontUrl(dev) {
+  return dev ? 'http://localhost:3001/' : 'fronturl'
+}
+
 module.exports = withBundleAnalyzer({
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        // You can add these as well
+        // port: '',
+        // pathname: 'arifscloud/image/upload/**',
+      },
+    ],
+  },
     webpack: (
       config,
       { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
@@ -41,6 +56,7 @@ module.exports = withBundleAnalyzer({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(dev),
             __IS_SERVER__: JSON.stringify(isServer),
+            __FRONT_URL__: JSON.stringify(getFrontUrl(dev)),
             __API__: JSON.stringify(getApiUrl(dev)),
             __PROJECT__: JSON.stringify('frontend'),
         })

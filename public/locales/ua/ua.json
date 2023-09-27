@@ -1,13 +1,15 @@
 {
-  "navbar": {
-            "Language": "EN"
- },
- "sidebar": {
-   "Home": "Головна",
-   "Bookmarks": "Закладки",
-   "My feed": "Моя стрічка"
-},
- "bookmarksPage": {
-    "subscription": "Підписки"  
- }
+    "navbar": {
+        "Language": "EN",
+        "Profile": "Профіль",
+        "Logout": "Вийти"
+    },
+    "sidebar": {
+        "Home": "Головна",
+        "Bookmarks": "Закладки",
+        "My feed": "Моя стрічка"
+    },
+    "bookmarksPage": {
+        "subscription": "Підписки"
+    }
 }

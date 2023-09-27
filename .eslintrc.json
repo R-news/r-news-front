@@ -1,32 +1,35 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended",
-    "prettier"
-  ],
-  "plugins": ["simple-import-sort", "v1"],
-  "rules": {
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "import/no-duplicates": "error",
-    "react/display-name": "off",
-    "v1/public-api-imports": [
-      "error",
-      {
-          "alias": "@",
-          "testFilesPatterns": [
-              "**/*.test.*",
-              "**/*.story.*",
-              "**/StoreDecorator.tsx"
-          ]
-      }
-  ],
-  "v1/layer-imports": [
-    "error",
-    {
-        "alias": "@",
-        "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:storybook/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": ["simple-import-sort", "v1", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "import/no-duplicates": "error",
+        "react/display-name": "off",
+        "v1/public-api-imports": [
+            "error",
+            {
+                "alias": "@",
+                "testFilesPatterns": [
+                    "**/*.test.*",
+                    "**/*.story.*",
+                    "**/StoreDecorator.tsx"
+                ]
+            }
+        ],
+        "v1/layer-imports": [
+            "error",
+            {
+                "alias": "@",
+                "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+            }
+        ]
     }
-]
-}
 }

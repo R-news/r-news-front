@@ -1,4 +1,4 @@
-import { Locale } from "../config/i18n/i18n";
+import { Locale } from '../config/i18n/i18n';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -9,12 +9,12 @@ export enum AppRoutes {
     NOT_FOUND = 'not_found',
 }
 
-export const getRouteMain = (lang:Locale) => `/${lang}/`;
-export const getRouteBookmarks = (lang:Locale) => `/${lang}/bookmarks`;
-export const getRouteMyFeed = (lang:Locale) => `/${lang}/myfeed`;
-export const getRouteProfile = (id: string) => `/profile/`;
+export const getRouteMain = (lang: Locale) => `/${lang}/`;
+export const getRouteBookmarks = (lang: Locale) => `/${lang}/bookmarks`;
+export const getRouteMyFeed = (lang: Locale) => `/${lang}/myfeed`;
+export const getRouteProfile = (lang: Locale, id: string) =>
+    `/${lang}/profile/`;
 export const getRouteForbidden = () => '/forbidden';
-
 
 // export function getRoutes(lang:Locale): Record<string, AppRoutes> {
 // return {
@@ -24,4 +24,3 @@ export const getRouteForbidden = () => '/forbidden';
 //     [getRouteForbidden()]: AppRoutes.FORBIDDEN,
 // }
 // }
-

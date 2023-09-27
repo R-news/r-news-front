@@ -5,6 +5,7 @@ import { Montserrat } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { PageParams } from '@/shared/types/pageParams';
 import { Footer } from '@/shared/ui/Footer';
 import { HStack } from '@/shared/ui/Stack';
@@ -33,19 +34,31 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     const cookieStore = cookies();
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
+    const loaderTheme =
+        themeCookie === 'app_dark_theme'
+            ? 'var(--color-dark)'
+            : 'var(--color-light)';
     return (
         <html
             lang={params.lang}
             className={`${montserrat.variable}`}
             data-theme={themeCookie}
         >
-            <body className={`app`}>
-                <Navbar themeCookie={themeCookie} lang={params.lang} />
-                <HStack>
-                    <Sidebar lang={params.lang} />
-                    <AppProviders>{children}</AppProviders>
-                </HStack>
-                <Footer lang={params.lang} />
+            <body
+                className={`app`}
+                style={{
+                    background: loaderTheme,
+                }}
+            >
+                <AppProviders>
+                    <Navbar themeCookie={themeCookie} lang={params.lang} />
+                    <StickyContentLayout
+                        left={<Sidebar lang={params.lang} />}
+                        content={children}
+                        right={<div>some articles</div>}
+                    ></StickyContentLayout>
+                    {/* <Footer lang={params.lang} /> */}
+                </AppProviders>
             </body>
         </html>
     );

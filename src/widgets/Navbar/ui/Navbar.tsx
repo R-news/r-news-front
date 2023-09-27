@@ -1,5 +1,9 @@
+import { getServerSession } from 'next-auth';
+
+import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { authConfig } from '@/shared/config/auth/auth';
 import { getDictionary } from '@/shared/config/i18n/dictionary';
 import { Locale } from '@/shared/config/i18n/i18n';
 import { AppLogo } from '@/shared/ui/AppLogo';
@@ -11,13 +15,20 @@ interface NavbarProps {
     lang: Locale;
 }
 export const Navbar = async ({ themeCookie, lang }: NavbarProps) => {
+    const session = await getServerSession(authConfig);
     const { navbar } = await getDictionary(lang);
+
     return (
         <HStack as="header" className={cls.Navbar} justify="between">
             <AppLogo lang={lang} />
             <HStack gap={'16'}>
                 <ThemeSwitcher themeCookie={themeCookie} />
                 <LangSwitcher lang={navbar.Language} />
+                <AvatarDropDown
+                    langData={navbar}
+                    lang={lang}
+                    session={session}
+                />
             </HStack>
         </HStack>
     );

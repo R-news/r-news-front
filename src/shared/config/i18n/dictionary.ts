@@ -1,10 +1,16 @@
-import 'server-only'
+import 'server-only';
 
-import type { Locale } from './i18n'
+import type { Locale } from './i18n';
 
 const dictionaries = {
-  en: () => import('../../../../public/locales/en/en.json').then(module => module.default),
-  ua: () => import('../../../../public/locales/ua/ua.json').then(module => module.default)
-}
+    en: () =>
+        import('../../../../public/locales/en/en.json').then(
+            (module) => module.default,
+        ),
+    ua: () =>
+        import('../../../../public/locales/ua/ua.json').then(
+            (module) => module.default,
+        ),
+};
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]()
+export const getDictionary = async (locale: Locale) => dictionaries[locale]();

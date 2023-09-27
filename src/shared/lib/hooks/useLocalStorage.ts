@@ -1,8 +1,10 @@
-'use client'
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+'use client';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-export function useLocalStorage<T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
-  
+export function useLocalStorage<T>(
+    key: string,
+    initialValue: T,
+): [T, Dispatch<SetStateAction<T>>] {
     const [storedValue, setStoredValue] = useState(initialValue);
     // We will use this flag to trigger the reading from localStorage
     const [firstLoadDone, setFirstLoadDone] = useState(false);
@@ -17,13 +19,13 @@ export function useLocalStorage<T>(key: string, initialValue: T): [T, Dispatch<S
             }
             try {
                 const item = window.localStorage.getItem(key);
-                return item ? JSON.parse(item) as T : initialValue;
+                return item ? (JSON.parse(item) as T) : initialValue;
             } catch (error) {
                 console.error(error);
                 return initialValue;
             }
         };
-        
+
         // Set the value from localStorage
         setStoredValue(fromLocal);
         // First load is done

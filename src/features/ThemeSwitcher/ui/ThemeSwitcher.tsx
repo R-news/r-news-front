@@ -4,7 +4,7 @@ import { MouseEventHandler, useEffect, useState } from 'react';
 
 import Moon from '@/shared/assets/icons/moon.svg';
 import Sun from '@/shared/assets/icons/sun.svg';
-import { Theme, themes } from '@/shared/const/theme';
+import { Theme, themes } from '@/shared/types/theme';
 import { Icon } from '@/shared/ui/Icon';
 import { Switch } from '@/shared/ui/Switch';
 
@@ -37,6 +37,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
     useEffect(() => {
         document.body.classList.add(theme);
         return () => {
+            document.body.removeAttribute('style');
             document.body.classList.remove(theme);
         };
     }, [theme]);
@@ -46,7 +47,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
     const onClick: MouseEventHandler<HTMLButtonElement> = async () => {
         setTheme(nextTheme);
 
-        await fetch(`${__API__}ua/api/theme`, {
+        await fetch(`${__FRONT_URL__}api/theme`, {
             method: 'POST',
             body: JSON.stringify({ theme: nextTheme }),
             headers: new Headers({

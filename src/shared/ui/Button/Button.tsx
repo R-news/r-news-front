@@ -42,6 +42,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
     color?: ButtonColor;
 
+    isLoading?: boolean;
+
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
 }

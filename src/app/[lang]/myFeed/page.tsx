@@ -1,11 +1,11 @@
-import React from 'react'
+import { getServerSession } from 'next-auth/next';
 
-const MyFeed = () => {
-  return (
-    <div>
-        MyFeed
-    </div>
-  )
-}
+import { authConfig } from '@/shared/config/auth/auth';
 
-export default MyFeed
+const MyFeed = async () => {
+    const session = await getServerSession(authConfig);
+    const isAuth = session;
+    return <div>{isAuth ? 'My feed' : 'Not auth'}</div>;
+};
+
+export default MyFeed;

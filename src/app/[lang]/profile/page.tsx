@@ -1,12 +1,16 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import { getServerSession } from 'next-auth/next';
 
-const Profile = () => {
-  return (
-    <div>
-        profile
-        <Link href="/profile/settings">Settings</Link>
-    </div>
-  )
-}
+import { authConfig } from '@/shared/config/auth/auth';
 
-export default Profile
+const Profile = async () => {
+    const session = await getServerSession(authConfig);
+    return (
+        <div>
+            profile
+            <Link href="/profile/settings">Settings</Link>
+        </div>
+    );
+};
+
+export default Profile;
