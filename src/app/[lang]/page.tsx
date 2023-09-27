@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import { ArticleList } from '@/entities/Article';
+import { BookmarksButton } from '@/features/BookmarksButton';
 import { LikeBtn } from '@/features/LikeBtn';
 import ThemeIconDeprecated from '@/shared/assets/icons/bookmark.svg';
 import { PageParams } from '@/shared/types/pageParams';
@@ -28,7 +29,8 @@ export default function Home({ params }: HomePageProps) {
             <Button onClick={() => setopen((prev) => !prev)}>Test</Button>
             <Icon Svg={ThemeIconDeprecated} />
             <ArticleList />
-            <LikeBtn text="323" />
+            <LikeBtn value="323" />
+            <BookmarksButton value="323" />
         </main>
     );
 }

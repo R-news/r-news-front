@@ -1,0 +1,17 @@
+.icon{
+      fill: var(--color-white);
+      stroke: var(--color-accent);
+      transition-property: all;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-timing-function);
+  
+      &:hover .icon {
+        transform: scale(1.1) rotate(-10deg);
+      }
+        &.userBookmark{
+          fill: var(--color-accent);
+        }
+  }
+  
+  
+  

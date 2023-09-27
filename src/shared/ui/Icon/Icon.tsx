@@ -4,12 +4,13 @@ import { Button } from '../Button';
 import cls from './Icon.module.scss';
 
 interface IconPropsBase {
-    classname?: string;
+    className?: string;
     classnameClickable?: string;
     Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
     defaultColor?: boolean;
     height?: number | `${number}`;
     width?: number | `${number}`;
+    isHover?: boolean;
 }
 
 interface NonClickableIconProps extends IconPropsBase {
@@ -25,19 +26,22 @@ type IconProps = NonClickableIconProps | ClickableBaseProps;
 export const Icon = (props: IconProps) => {
     const {
         Svg,
-        classname,
+        className,
         classnameClickable,
         height = 30,
         width = 30,
         clickable,
         defaultColor,
+        isHover,
     } = props;
 
     const icon = (
         <Svg
-            className={classNames(cls.Icon, { [cls.iconColor]: defaultColor }, [
-                classname,
-            ])}
+            className={classNames(
+                cls.Icon,
+                { [cls.iconColor]: defaultColor, [cls.isHover]: isHover },
+                [className],
+            )}
             width={width}
             height={height}
             onClick={undefined}
