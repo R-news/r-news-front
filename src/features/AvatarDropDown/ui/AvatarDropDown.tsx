@@ -43,7 +43,7 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
         return (
             <>
                 <Button onClick={() => setIsOpen((prev) => !prev)}>
-                    Login
+                    {langData.Login}
                 </Button>
                 {isOpen && (
                     <AuthModal

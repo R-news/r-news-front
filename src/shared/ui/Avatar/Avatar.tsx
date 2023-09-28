@@ -33,7 +33,7 @@ export const Avatar = ({
         <AppImage
             fallback={fallback}
             errorFallback={errorFallback}
-            //@ts-ignore TODO TS
+            //@ts-ignore exception
             src={src}
             alt={alt}
             width={size}

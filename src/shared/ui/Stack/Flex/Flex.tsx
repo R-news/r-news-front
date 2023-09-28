@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import {
+    DetailedHTMLProps,
+    ElementType,
+    HTMLAttributes,
+    ReactNode,
+} from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames/';
 
@@ -42,7 +47,7 @@ type DivProps = DetailedHTMLProps<
 >;
 
 export interface FlexProps extends DivProps {
-    as?: any; //TODO
+    as?: ElementType;
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;

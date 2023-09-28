@@ -36,7 +36,7 @@ export type ArticleBlock =
     | ArticleVideoBlock;
 
 export interface Article {
-    _id?: string;
+    _id: string;
     title?: string;
     subtitle?: string;
     img?: string | StaticImport;

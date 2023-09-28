@@ -3,6 +3,10 @@
     border-radius: var(--border-medium);
     color: var(--primary-color);
     font-weight: var(--font-weight-semi-bold);
+
+    &.withoutPadding{
+        padding: 0;
+    }
 }
 
 .isActive{

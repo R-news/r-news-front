@@ -2,7 +2,8 @@
     "navbar": {
         "Language": "EN",
         "Profile": "Профіль",
-        "Logout": "Вийти"
+        "Logout": "Вийти",
+        "Login": "Увійти"
     },
     "sidebar": {
         "Home": "Головна",

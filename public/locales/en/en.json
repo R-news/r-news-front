@@ -2,7 +2,8 @@
     "navbar": {
         "Language": "UA",
         "Profile": "Profile",
-        "Logout": "Logout"
+        "Logout": "Logout",
+        "Login": "Login"
     },
     "sidebar": {
         "Home": "Home",
@@ -15,5 +16,4 @@
     "shared": {
         "views": "views"
     }
-
 }

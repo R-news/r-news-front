@@ -16,6 +16,7 @@ interface AppLinkProps extends LinkProps {
     replace?: boolean;
     scroll?: boolean;
     prefetch?: boolean;
+    withoutPadding?: boolean;
 }
 
 export const AppLink = forwardRef((props: AppLinkProps, ref) => {
@@ -28,16 +29,21 @@ export const AppLink = forwardRef((props: AppLinkProps, ref) => {
         prefetch,
         variant = 'primary',
         isActive,
+        withoutPadding,
         ...otherProps
     } = props;
     return (
         <Link
             //@ts-ignore TODO
             ref={ref}
-            className={classNames(cls.AppLink, { [cls.isActive]: isActive }, [
-                classname,
-                cls[variant],
-            ])}
+            className={classNames(
+                cls.AppLink,
+                {
+                    [cls.isActive]: isActive,
+                    [cls.withoutPadding]: withoutPadding,
+                },
+                [classname, cls[variant]],
+            )}
             href={href}
             replace={replace}
             scroll={scroll}
