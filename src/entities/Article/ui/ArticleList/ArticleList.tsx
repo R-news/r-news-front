@@ -1,17 +1,17 @@
+import { ReactNode } from 'react';
+
 import { VStack } from '@/shared/ui/Stack';
-
-import { ArticleItem } from '../ArticleItem/ArticleItem';
-
 interface ArticleListProps {
     classname?: string;
+    children: ReactNode;
 }
 
 export const ArticleList = (props: ArticleListProps) => {
-    const { classname } = props;
+    const { classname, children } = props;
 
     return (
-        <VStack as={'ul'}>
-            <ArticleItem />
+        <VStack as={'ul'} align={'center'} gap="16">
+            {children}
         </VStack>
     );
 };

@@ -4,7 +4,7 @@
 
 .overlay {
     position: fixed;
-    background: var(--color-overlay);
+    background-color: var(--modal-overlay);
     inset: 0;
 }
 
@@ -14,7 +14,7 @@
         align-items: center;
         justify-content: center;
         width: 100vw;
-    padding: 15px;
+    padding: var(--padding-3);
         inset: 0;
 }
 

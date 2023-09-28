@@ -1,11 +1,16 @@
 'use client';
+
+import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
+import { useState } from 'react';
 
 import { Locale } from '@/shared/config/i18n/i18n';
 import { getRouteProfile } from '@/shared/const/route';
-import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
 import { DropDown } from '@/shared/ui/Popups';
+
+import { AuthModal } from './AuthModal';
 
 interface AvatarDropDownProps {
     lang: Locale;
@@ -15,8 +20,14 @@ interface AvatarDropDownProps {
 }
 
 export const AvatarDropDown = (props: AvatarDropDownProps) => {
+    const router = useRouter();
     const { classname, langData, lang, session } = props;
+    const [isOpen, setIsOpen] = useState(false);
 
+    const onLogout = () => {
+        signOut({ redirect: false });
+        router.refresh();
+    };
     const items = [
         {
             content: langData.Profile,
@@ -24,14 +35,22 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
         },
         {
             content: langData.Logout,
-            onClick: () => signOut({ callbackUrl: '/' }),
+            onClick: () => onLogout,
         },
     ];
 
-    if (!session.user) {
+    if (!session?.user) {
         return (
             <>
-                <AppLink href={'/en/auth'}>Auth</AppLink>
+                <Button onClick={() => setIsOpen((prev) => !prev)}>
+                    Login
+                </Button>
+                {isOpen && (
+                    <AuthModal
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen((prev) => !prev)}
+                    />
+                )}
             </>
         );
     }

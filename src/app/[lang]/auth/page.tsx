@@ -1,4 +1,4 @@
-import { LoginForm } from '@/features/AuthByCredentials';
+import { LoginForm } from '@/features/AuthModal';
 
 interface pageProps {
     classname?: string;

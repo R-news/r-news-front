@@ -56,7 +56,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
                         left={<Sidebar lang={params.lang} />}
                         content={children}
                         right={<div>some articles</div>}
-                    ></StickyContentLayout>
+                    />
                     {/* <Footer lang={params.lang} /> */}
                 </AppProviders>
             </body>

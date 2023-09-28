@@ -6,10 +6,16 @@ import { type FormEventHandler, useState } from 'react';
 
 import { $api } from '@/shared/api/config';
 import { Button } from '@/shared/ui/Button';
+import { Modal } from '@/shared/ui/Modal';
 
 //TODO
 
-export const LoginForm = () => {
+interface AuthModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     const [isLogin, setisLogin] = useState<boolean>(false);
 
     const onChaneFormClick = () => {
@@ -29,6 +35,7 @@ export const LoginForm = () => {
         });
 
         if (res && !res.error) {
+            router.refresh();
             router.push('/profile');
         } else {
             console.log(res);
@@ -53,11 +60,12 @@ export const LoginForm = () => {
                 password: formData.get('password'),
                 redirect: false,
             });
+            router.refresh();
         }
     };
 
     return (
-        <>
+        <Modal isOpen={isOpen} onClose={onClose}>
             <form
                 onSubmit={isLogin ? onLoginClick : onRegisterClick}
                 className="login-form"
@@ -70,6 +78,6 @@ export const LoginForm = () => {
             <Button onClick={onChaneFormClick} variant="clear">
                 {isLogin ? 'Sign up now!' : 'Already registered?'}
             </Button>
-        </>
+        </Modal>
     );
 };

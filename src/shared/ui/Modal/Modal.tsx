@@ -10,7 +10,7 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     isOpen?: boolean;
-    onClose: any; //TODO
+    onClose: () => void;
     classname?: string;
     title?: string;
     description?: string;
@@ -29,6 +29,7 @@ export const Modal = (props: ModalProps) => {
                         clickable
                         onClick={onClose}
                         Svg={CrossIcon}
+                        defaultColor
                         classnameClickable={cls.icon}
                     />
                     {title && <Dialog.Title>{title}</Dialog.Title>}

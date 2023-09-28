@@ -1,0 +1,31 @@
+.icon{
+      fill: var(--color-accent);
+      stroke: var(--color-accent);
+      transition-property: all;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-timing-function);
+  
+      &:hover .icon {
+        transform: scale(1.1) rotate(-10deg);
+      }
+
+  }
+
+  .span{
+    font-weight: var(--font-weight-semi-bold);
+    transition-property: all;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+  }
+
+  .container{
+    cursor: pointer;
+   
+    &:hover .span {
+      color: var(--color-accent);
+    }
+  }
+  
+  
+  
+  

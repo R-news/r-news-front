@@ -11,5 +11,8 @@
     },
     "bookmarksPage": {
         "subscription": "Підписки"
+    },
+    "shared": {
+        "views": "покази"
     }
 }

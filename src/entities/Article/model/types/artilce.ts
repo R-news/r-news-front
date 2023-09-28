@@ -1,3 +1,5 @@
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+
 import { ArticleBlockType, ArticleType } from './enums';
 
 export interface ArticleBlockBase {
@@ -34,14 +36,15 @@ export type ArticleBlock =
     | ArticleVideoBlock;
 
 export interface Article {
-    _id: string;
-    title: string;
+    _id?: string;
+    title?: string;
     subtitle?: string;
-    img?: string;
-    views: number;
-    userId: string;
-    type: ArticleType;
-    blocks: ArticleBlock[];
-    comments: Array<string>;
-    likes: number;
+    img?: string | StaticImport;
+    views?: number;
+    userId?: string;
+    type?: ArticleType;
+    blocks?: ArticleBlock[];
+    comments?: Array<string>;
+    likes?: number;
+    createdAt?: string;
 }

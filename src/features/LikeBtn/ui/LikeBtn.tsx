@@ -8,7 +8,7 @@ import cls from './LikeBtn.module.scss';
 interface LikeBtnProps {
     isLiked?: boolean;
     classname?: string;
-    value?: string;
+    value?: number;
     onLikeClick: () => void;
     onDislikeClick: () => void;
 }

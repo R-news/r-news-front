@@ -1,45 +1,32 @@
+import { ReactNode } from 'react';
+
 import { AppImage } from '@/shared/ui/AppImage';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
+import { Article } from '../../model/types/artilce';
 import css from './ArticleItem.module.scss';
 
-interface ArticleItemProps {
+interface ArticleItemProps extends Article {
     classname?: string;
+    ButtonsWidget?: ReactNode;
+    langData?: any;
 }
 
-const data = {
-    title: 'Sample Article',
-    subtitle: 'An Example Article',
-    img: 'https://res.cloudinary.com/dxs7prlcr/image/upload/v1685005716/Big-tasty_xjwu5o.jpg',
-    views: 1000,
-    userId: 'yourUserIdHere',
-    type: 'It',
-    blocks: [
-        {
-            type: 'text',
-            paragraphs: [
-                'string[]',
-                'string[]',
-                'string[]string[]string[]string[]string[]string[]',
-            ],
-            title: 'TEXT BLOCK TITLE',
-        },
-        {
-            type: 'IMAGE',
-            src: 'https://res.cloudinary.com/dxs7prlcr/image/upload/v1685005716/Big-tasty_xjwu5o.jpg',
-            title: 'PHOTO TEXT',
-        },
-        // Add more blocks as needed
-    ],
-    comments: ['Comment 1', 'Comment 2', 'Comment 3'],
-    likes: 42,
-    createdAt: '323.32.3232',
-};
-
 export const ArticleItem = (props: ArticleItemProps) => {
-    const { classname } = props;
+    const {
+        langData,
+        classname,
+        ButtonsWidget,
+        userId,
+        createdAt,
+        title,
+        subtitle,
+        img,
+        views,
+    } = props;
 
     const imageStyle = {
         width: '100%',
@@ -47,28 +34,25 @@ export const ArticleItem = (props: ArticleItemProps) => {
 
     return (
         <Card padding="16" max className={css.card}>
-            <HStack gap="8">
-                <Text text={data.userId} />
-                <Text text={data.createdAt} />
+            <HStack gap="16">
+                <Avatar size={20} />
+                <Text text={userId} bold />
+                <Text text={createdAt} />
             </HStack>
-            <Text title={data.title} />
-            <Text text={data.subtitle} />
+            <Text title={title} />
+            <Text text={subtitle} />
             <AppImage
-                src={data.img}
+                //@ts-ignore
+                src={img}
                 sizes="100vw"
                 width={0}
                 height={300}
-                alt={data.title}
+                //@ts-ignore
+                alt={title}
                 style={imageStyle}
             />
-            <HStack>
-                <Text title={`${data.views} views`} />
-            </HStack>
-            <HStack>
-                <Text title={`${data.likes} likes`} />
-                <Text title={`${data.comments.length} comments`} />
-                <Text title={`${data.views} views`} />
-            </HStack>
+            <Text text={`${views} ${langData?.views}`} />
+            {ButtonsWidget && ButtonsWidget}
         </Card>
     );
 };

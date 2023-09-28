@@ -1,3 +1,22 @@
+.icon{
+  fill: var(--bg-color-secondary);
+  stroke: var(--color-accent);
+  transition-property: all;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+
+    &.isLiked{
+      fill: var(--color-accent);
+    }
+}
+
+.span{
+  font-weight: var(--font-weight-semi-bold);
+  transition-property: all;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+}
+
 .container{
   cursor: pointer;
 
@@ -10,22 +29,5 @@
   }
 }
 
-.icon{
-    fill: var(--color-white);
-    stroke: var(--color-accent);
-    transition-property: all;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
 
-      &.isLiked{
-        fill: var(--color-accent);
-      }
-}
-
-.span{
-  font-weight: var(--font-weight-semi-bold);
-  transition-property: all;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function);
-}
 

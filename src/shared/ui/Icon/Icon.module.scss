@@ -1,12 +1,13 @@
 .Icon {
+    border-radius: 50%;
     transition-property: all;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
+
     &.isHover:hover{
-        border-radius: 50%;
         background: var(--color-blue-light);
     }
-    // stroke: var(--color-accent);
+
 }
 
 .iconColor{

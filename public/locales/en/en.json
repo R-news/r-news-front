@@ -11,5 +11,9 @@
     },
     "bookmarksPage": {
         "subscription": "Subscriptions"
+    },
+    "shared": {
+        "views": "views"
     }
+
 }
