@@ -45,6 +45,6 @@ export interface Article {
     type?: ArticleType;
     blocks?: ArticleBlock[];
     comments?: Array<string>;
-    likes?: number;
+    likes?: string[];
     createdAt?: string;
 }

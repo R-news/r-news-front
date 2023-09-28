@@ -32,8 +32,8 @@ const articles = [
             },
             // Add more blocks as needed
         ],
-        comments: ['Comment 1', 'Comment 2', 'Comment 3'],
-        likes: 42,
+        comments: 5,
+        likes: ['Comment 1', 'Comment 2', 'Comment 3'],
         createdAt: 'createdAt',
     },
     {
@@ -62,8 +62,8 @@ const articles = [
             },
             // Add more blocks as needed
         ],
-        comments: ['Comment 1', 'Comment 2', 'Comment 3'],
-        likes: 42,
+        comments: 2,
+        likes: ['Comment 1', 'Comment 2', 'Comment 3'],
         createdAt: 'createdAt',
     },
 ];
@@ -88,14 +88,14 @@ export const ArticlesListWithButtons = ({
                     {...article}
                     ButtonsWidget={
                         <ArticleButtons
-                            likesValue={0}
+                            likesValue={article?.likes.length}
                             onLikeClick={onLikeClick}
                             onDislikeClick={onDislikeClick}
                             onCommentClick={onCommentClick}
                             onBookmarkClick={onBookmarkClick}
                             isUserBookmark={isUserBookmark}
                             isLiked={isLiked}
-                            commentsValue={articles?.[0].comments.length}
+                            commentsValue={article?.comments}
                         />
                     }
                 />
