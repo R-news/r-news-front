@@ -1,7 +1,9 @@
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { cookies } from 'next/headers';
 import React, { ReactNode } from 'react';
 
 import { AppLoader } from '../../AppLoader';
+import { QueryProvider } from '../../QueryProvider';
 import { SessionProvider } from '../../SessionProvider';
 
 interface AppProvidersProps {
@@ -12,7 +14,12 @@ const AppProviders = ({ children }: AppProvidersProps) => {
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
     return (
         <SessionProvider>
-            <AppLoader theme={themeCookie}>{children}</AppLoader>
+            <QueryProvider>
+                <>
+                    <AppLoader theme={themeCookie}>{children}</AppLoader>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </>
+            </QueryProvider>
         </SessionProvider>
     );
 };

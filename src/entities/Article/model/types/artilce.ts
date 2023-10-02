@@ -45,6 +45,15 @@ export interface Article {
     type?: ArticleType;
     blocks?: ArticleBlock[];
     comments?: Array<string>;
-    likes?: string[];
+    likes: string[];
     createdAt?: string;
+}
+
+type ArticleWithoutCommnet = Omit<Article, 'comments'>;
+export interface ArticleUpdate extends ArticleWithoutCommnet {
+    comments: number;
+    user: {
+        username: string;
+        avatar: string;
+    };
 }

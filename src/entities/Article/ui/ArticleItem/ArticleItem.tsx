@@ -7,10 +7,10 @@ import { Card } from '@/shared/ui/Card';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
-import { Article } from '../../model/types/artilce';
+import { ArticleUpdate } from '../../model/types/artilce';
 import css from './ArticleItem.module.scss';
 
-interface ArticleItemProps extends Article {
+interface ArticleItemProps extends ArticleUpdate {
     classname?: string;
     ButtonsWidget?: ReactNode;
     langData?: any;
@@ -22,20 +22,20 @@ export const ArticleItem = (props: ArticleItemProps) => {
         langData,
         classname,
         ButtonsWidget,
-        userId,
         createdAt,
         title,
         subtitle,
         img,
         views,
+        user,
     } = props;
 
     return (
         <Card padding="16" max className={css.card}>
             <AppLink href={_id} withoutPadding>
                 <HStack gap="16">
-                    <Avatar size={20} />
-                    <Text text={userId} bold />
+                    <Avatar size={20} src={user.avatar} />
+                    <Text text={user.username} bold />
                     <Text text={createdAt} />
                 </HStack>
                 <Text title={title} />

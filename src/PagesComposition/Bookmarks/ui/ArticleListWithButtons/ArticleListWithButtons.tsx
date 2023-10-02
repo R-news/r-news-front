@@ -1,11 +1,6 @@
 'use client';
-import {
-    ArticleItem,
-    ArticleList,
-    ArticleUpdate,
-    useGetHomeArticles,
-} from '@/entities/Article';
-import useAxiosAuth from '@/shared/lib/hooks/useAxiosAuth';
+import { ArticleItem, ArticleList, ArticleUpdate } from '@/entities/Article';
+import { useGetBookmarks } from '@/entities/User';
 import { ArticleButtons } from '@/widgets/ArticleButtons';
 
 import { useArticlesButtons } from '../../../../entities/Article/model/hooks/useArticlesButtons';
@@ -18,9 +13,8 @@ interface ArticlesListWithButtonsProps {
 export const ArticlesListWithButtons = ({
     langData,
 }: ArticlesListWithButtonsProps) => {
-    const { data: { data } = {}, isLoading } = useGetHomeArticles();
+    const { data: { data } = {}, isLoading } = useGetBookmarks();
 
-    const axiosAuth = useAxiosAuth();
     const {
         onLikeClick,
         onCommentClick,
@@ -35,13 +29,6 @@ export const ArticlesListWithButtons = ({
 
     return (
         <ArticleList>
-            <button
-                onClick={async () => {
-                    await axiosAuth.get(`api/user/data`);
-                }}
-            >
-                tests
-            </button>
             {data?.articles?.map((article: ArticleUpdate) => (
                 <ArticleItem
                     langData={langData}

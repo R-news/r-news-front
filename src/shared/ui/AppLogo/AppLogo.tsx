@@ -25,7 +25,8 @@ export const AppLogo = memo(({ classname, size = 40, lang }: AppLogoProps) => {
                     height={size}
                     width={size}
                     Svg={logo}
-                    classname={cls.icon}
+                    className={cls.icon}
+                    defaultColor
                 />
                 NEWS
             </HStack>

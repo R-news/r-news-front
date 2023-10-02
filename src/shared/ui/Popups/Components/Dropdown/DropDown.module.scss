@@ -16,3 +16,8 @@
     cursor: pointer;
     outline: none;
 }
+
+.isOpen{
+    transform: rotate(180deg);
+}
+

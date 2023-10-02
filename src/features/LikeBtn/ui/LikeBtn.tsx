@@ -10,11 +10,10 @@ interface LikeBtnProps {
     classname?: string;
     value?: number;
     onLikeClick: () => void;
-    onDislikeClick: () => void;
 }
 
 export const LikeBtn = (props: LikeBtnProps) => {
-    const { classname, value, isLiked, onLikeClick, onDislikeClick } = props;
+    const { classname, value, isLiked, onLikeClick } = props;
 
     return (
         <HStack align={'center'} gap="4" className={cls.container}>
@@ -22,10 +21,10 @@ export const LikeBtn = (props: LikeBtnProps) => {
                 width={25}
                 height={25}
                 clickable
-                onClick={isLiked ? onDislikeClick : onLikeClick}
+                onClick={onLikeClick}
                 classnameClickable={classNames(
                     cls.icon,
-                    { [cls.liked]: isLiked },
+                    { [cls.isLiked]: isLiked },
                     [classname],
                 )}
                 Svg={Like}

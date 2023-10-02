@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 
+import { useGetUserData } from '@/entities/User';
+import { setAuthToken } from '@/shared/api/config';
 import { Locale } from '@/shared/config/i18n/i18n';
 import { getRouteProfile } from '@/shared/const/route';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -24,8 +26,11 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
     const { classname, langData, lang, session } = props;
     const [isOpen, setIsOpen] = useState(false);
 
-    const onLogout = () => {
-        signOut({ redirect: false });
+    const { data: { data: user } = {} } = useGetUserData();
+
+    const onLogout = async () => {
+        await signOut({ redirect: false });
+        setAuthToken();
         router.refresh();
     };
     const items = [
@@ -35,7 +40,7 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
         },
         {
             content: langData.Logout,
-            onClick: () => onLogout,
+            onClick: () => onLogout(),
         },
     ];
 
@@ -56,6 +61,11 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
     }
 
     return (
-        <DropDown items={items} trigger={<Avatar />} direction="bottom left" />
+        <DropDown
+            withArrow
+            items={items}
+            trigger={<Avatar src={user?.userData.avatar} />}
+            direction="bottom left"
+        />
     );
 };

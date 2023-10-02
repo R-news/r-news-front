@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import type { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -20,6 +21,13 @@ export const authConfig: AuthOptions = {
                     '/api/auth/login',
                     credentials,
                 );
+
+                cookies().set({
+                    name: 'refreshToken',
+                    value: data.userData.refreshToken,
+                    httpOnly: true,
+                    path: '/',
+                });
 
                 if (data.userData) {
                     return data.userData;

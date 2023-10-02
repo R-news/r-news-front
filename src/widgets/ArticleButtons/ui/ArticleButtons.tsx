@@ -10,7 +10,6 @@ interface ArticleButtonsProps {
     likesValue: number;
     commentsValue?: number;
     onLikeClick: () => void;
-    onDislikeClick: () => void;
     onBookmarkClick: () => void;
     onCommentClick: () => void;
 }
@@ -21,7 +20,6 @@ export const ArticleButtons = (props: ArticleButtonsProps) => {
         likesValue,
         commentsValue,
         onLikeClick,
-        onDislikeClick,
         isLiked,
         isUserBookmark,
         onBookmarkClick,
@@ -32,7 +30,6 @@ export const ArticleButtons = (props: ArticleButtonsProps) => {
             <LikeBtn
                 value={likesValue}
                 onLikeClick={onLikeClick}
-                onDislikeClick={onDislikeClick}
                 isLiked={isLiked}
             />
             <CommentsButton

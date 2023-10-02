@@ -12,7 +12,10 @@ export const AppLoader = ({ children, theme }: AppLoaderProps) => {
     const [isReady, setIsReady] = useState<boolean>(false);
 
     useEffect(() => {
-        if ((session.status = 'authenticated')) {
+        if (
+            session.status === 'authenticated' ||
+            session.status === 'unauthenticated'
+        ) {
             setIsReady(true);
         }
     }, [session]);
