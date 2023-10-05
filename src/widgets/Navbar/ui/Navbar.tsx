@@ -1,6 +1,7 @@
 import { getServerSession } from 'next-auth';
 
 import { AvatarDropDown } from '@/features/AvatarDropDown';
+import { CreateArticleButton } from '@/features/CreateArticleButton';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { authConfig } from '@/shared/config/auth/auth';
@@ -22,6 +23,7 @@ export const Navbar = async ({ themeCookie, lang }: NavbarProps) => {
         <HStack as="header" className={cls.Navbar} justify="between">
             <AppLogo lang={lang} />
             <HStack gap={'16'}>
+                {session?.user && <CreateArticleButton langData={navbar} />}
                 <ThemeSwitcher themeCookie={themeCookie} />
                 <LangSwitcher lang={navbar.Language} />
                 <AvatarDropDown

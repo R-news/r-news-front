@@ -8,6 +8,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import { ArticleUpdate } from '../../model/types/artilce';
+import ArticleHeader from '../ArticleHeader/ArticleHeader';
 import css from './ArticleItem.module.scss';
 
 interface ArticleItemProps extends ArticleUpdate {
@@ -31,28 +32,31 @@ export const ArticleItem = (props: ArticleItemProps) => {
     } = props;
 
     return (
-        <Card padding="16" max className={css.card}>
-            <AppLink href={_id} withoutPadding>
-                <HStack gap="16">
-                    <Avatar size={20} src={user.avatar} />
-                    <Text text={user.username} bold />
-                    <Text text={createdAt} />
-                </HStack>
-                <Text title={title} />
-                <Text text={subtitle} />
-                <AppImage
-                    //@ts-ignore
-                    src={img}
-                    sizes="100vw"
-                    width={0}
-                    height={300}
-                    //@ts-ignore
-                    alt={title}
-                    className={css.img}
-                />
-                <Text text={`${views} ${langData?.views}`} />
-            </AppLink>
-            {ButtonsWidget && ButtonsWidget}
+        <Card padding="16" max className={css.card} as="li">
+            <article>
+                <AppLink href={_id} withoutPadding>
+                    <ArticleHeader
+                        avatar={user.avatar}
+                        username={user.username}
+                        createdAt={createdAt}
+                        userId={user._id}
+                    />
+                    <Text title={title} />
+                    <Text text={subtitle} />
+                    <AppImage
+                        //@ts-ignore
+                        src={img}
+                        sizes="100vw"
+                        width={0}
+                        height={300}
+                        //@ts-ignore
+                        alt={title}
+                        className={css.img}
+                    />
+                    <Text text={`${views} ${langData?.views}`} />
+                </AppLink>
+                {ButtonsWidget && ButtonsWidget}
+            </article>
         </Card>
     );
 };

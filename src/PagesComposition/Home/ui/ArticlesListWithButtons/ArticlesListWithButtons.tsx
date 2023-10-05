@@ -18,7 +18,7 @@ interface ArticlesListWithButtonsProps {
 export const ArticlesListWithButtons = ({
     langData,
 }: ArticlesListWithButtonsProps) => {
-    const { data: { data } = {}, isLoading } = useGetHomeArticles();
+    const { data: { data } = {} } = useGetHomeArticles();
 
     const axiosAuth = useAxiosAuth();
     const {
@@ -28,10 +28,6 @@ export const ArticlesListWithButtons = ({
         userLikes,
         userBookmarks,
     } = useArticlesButtons();
-
-    if (isLoading) {
-        return <div>Loading</div>;
-    }
 
     return (
         <ArticleList>

@@ -13,6 +13,7 @@ export const useGetUserData = () => {
     const queryResp = useQuery(
         ['userData'],
         async () => {
+            await axiosAuth.get('api/auth/refresh');
             return await axiosAuth.get(`api/user/data`);
         },
         {

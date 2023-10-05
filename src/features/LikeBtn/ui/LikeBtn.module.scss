@@ -1,4 +1,5 @@
 .icon{
+  border-radius: 0%;
   fill: var(--bg-color-secondary);
   stroke: var(--color-accent);
   transition-property: all;
@@ -18,7 +19,9 @@
 }
 
 .container{
-  cursor: pointer;
+  &:hover .isLiked.icon {
+    transform: scale(1.1) rotate(0);
+  }
 
   &:hover .icon {
     transform: scale(1.1) rotate(-10deg);

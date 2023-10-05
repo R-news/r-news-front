@@ -5,8 +5,6 @@ import { getDictionary } from '@/shared/config/i18n/dictionary';
 import { Locale } from '@/shared/config/i18n/i18n';
 import { VStack } from '@/shared/ui/Stack';
 
-import { getsidebarItems } from '../../model/data';
-import { SidebarItems } from '../SidebarItems/SidebarItems';
 import { SidebarList } from '../SidebarList/SidebarList';
 import cls from './Sidebar.module.scss';
 

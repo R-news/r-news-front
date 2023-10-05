@@ -12,6 +12,7 @@ export const useRefreshToken = () => {
         try {
             const res = await axiosAuth.get('api/auth/refresh');
             if (session?.data?.user) {
+                //@ts-ignore TODO
                 session.data.user.accessToken = res.data.userData.accessToken;
                 setCookie('refreshToken', res.data.userData.refreshToken);
             }

@@ -7,8 +7,6 @@ import { cookies } from 'next/headers';
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { PageParams } from '@/shared/types/pageParams';
-import { Footer } from '@/shared/ui/Footer';
-import { HStack } from '@/shared/ui/Stack';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 

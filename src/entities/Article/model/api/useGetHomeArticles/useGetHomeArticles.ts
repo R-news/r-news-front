@@ -19,3 +19,8 @@ export const useGetHomeArticles = () => {
     );
     return queryResp;
 };
+
+export const getHomeArticles = async () => {
+    const resp = await $api.get('api/articles/home');
+    return resp.data.articles;
+};

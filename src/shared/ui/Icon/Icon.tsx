@@ -40,7 +40,7 @@ export const Icon = (props: IconProps) => {
             className={classNames(
                 cls.Icon,
                 { [cls.iconColor]: defaultColor, [cls.isHover]: isHover },
-                [className],
+                [className ? className : classnameClickable],
             )}
             width={width}
             height={height}

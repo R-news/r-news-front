@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { ElementType, memo } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 
@@ -11,6 +11,7 @@ export type TextAlign = 'right' | 'left' | 'center';
 export type TextSize = 's' | 'm' | 'l';
 
 interface TextProps {
+    textAs?: ElementType;
     className?: string;
     title?: string;
     text?: string;
@@ -36,6 +37,7 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
 
 export const Text = memo((props: TextProps) => {
     const {
+        textAs: Element = 'div',
         className,
         text,
         title,
@@ -59,7 +61,7 @@ export const Text = memo((props: TextProps) => {
             )}
         >
             {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {text && <Element className={cls.text}>{text}</Element>}
         </div>
     );
 });

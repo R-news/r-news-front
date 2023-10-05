@@ -3,7 +3,8 @@
         "Language": "UA",
         "Profile": "Profile",
         "Logout": "Logout",
-        "Login": "Login"
+        "Login": "Login",
+        "Write": "Write"
     },
     "sidebar": {
         "Home": "Home",

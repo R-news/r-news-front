@@ -1,12 +1,11 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
-import { type FormEventHandler, useState } from 'react';
+import { useState } from 'react';
 
-import { $api } from '@/shared/api/config';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
+
+import { useAuth } from '../model/hooks/useAuth';
 
 //TODO
 
@@ -17,51 +16,10 @@ interface AuthModalProps {
 
 export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     const [isLogin, setisLogin] = useState<boolean>(false);
+    const { onRegisterClick, onLoginClick } = useAuth();
 
     const onChaneFormClick = () => {
         setisLogin((prev) => !prev);
-    };
-    const router = useRouter();
-
-    const onLoginClick: FormEventHandler<HTMLFormElement> = async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.currentTarget);
-
-        const res = await signIn('credentials', {
-            email: formData.get('email'),
-            password: formData.get('password'),
-            redirect: false,
-        });
-
-        if (res && !res.error) {
-            router.refresh();
-            router.push('/profile');
-        } else {
-            console.log(res);
-        }
-    };
-
-    const onRegisterClick: FormEventHandler<HTMLFormElement> = async (
-        event,
-    ) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.currentTarget);
-        const { data } = await $api.post('/api/auth/registration', {
-            email: formData.get('email'),
-            password: formData.get('password'),
-            username: formData.get('username'),
-        });
-
-        if (data.userData) {
-            await signIn('credentials', {
-                email: formData.get('email'),
-                password: formData.get('password'),
-                redirect: false,
-            });
-            router.refresh();
-        }
     };
 
     return (

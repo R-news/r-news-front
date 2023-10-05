@@ -4,6 +4,7 @@ import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './Card.module.scss';
 
+type SupportedTags = 'div' | 'li' | 'article' | 'section';
 // export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
 export type CardBorder = 'round' | 'normal' | 'partial';
@@ -15,6 +16,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     padding?: CardPadding;
     border?: CardBorder;
     fullHeight?: boolean;
+    as?: SupportedTags;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -26,6 +28,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 
 export const Card = memo((props: CardProps) => {
     const {
+        as = 'div',
         className,
         children,
         // variant = 'normal',
@@ -37,9 +40,11 @@ export const Card = memo((props: CardProps) => {
     } = props;
 
     const paddingClass = mapPaddingToClass[padding];
+    const Tag = as as keyof JSX.IntrinsicElements;
 
     return (
-        <div
+        //@ts-ignore
+        <Tag
             className={classNames(
                 cls.Card,
                 {
@@ -51,6 +56,6 @@ export const Card = memo((props: CardProps) => {
             {...otherProps}
         >
             {children}
-        </div>
+        </Tag>
     );
 });

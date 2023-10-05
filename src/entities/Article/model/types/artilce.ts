@@ -35,15 +35,20 @@ export type ArticleBlock =
     | ArticleTextBlock
     | ArticleVideoBlock;
 
+interface ArticleUserInfo {
+    _id: string;
+    username: string;
+    avatar: string;
+}
 export interface Article {
     _id: string;
-    title?: string;
+    title: string;
     subtitle?: string;
     img?: string | StaticImport;
     views?: number;
-    userId?: string;
+    userId: ArticleUserInfo;
     type?: ArticleType;
-    blocks?: ArticleBlock[];
+    blocks: ArticleBlock[];
     comments?: Array<string>;
     likes: string[];
     createdAt?: string;
@@ -52,8 +57,5 @@ export interface Article {
 type ArticleWithoutCommnet = Omit<Article, 'comments'>;
 export interface ArticleUpdate extends ArticleWithoutCommnet {
     comments: number;
-    user: {
-        username: string;
-        avatar: string;
-    };
+    user: ArticleUserInfo;
 }

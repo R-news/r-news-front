@@ -3,7 +3,8 @@
         "Language": "EN",
         "Profile": "Профіль",
         "Logout": "Вийти",
-        "Login": "Увійти"
+        "Login": "Увійти",
+        "Write": "Написати"
     },
     "sidebar": {
         "Home": "Головна",

@@ -1,4 +1,6 @@
+import { QueryClient } from '@tanstack/react-query';
 import axios from 'axios';
+import { cache } from 'react';
 
 export const $api = axios.create({
     withCredentials: true,
@@ -18,3 +20,5 @@ export const setAuthToken = (token?: string) => {
         delete $api.defaults.headers.common['Authorization'];
     }
 };
+
+export const getQueryClient = cache(() => new QueryClient());
