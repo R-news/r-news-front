@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Settings = () => {
+export default async function Settings() {
     return <div>Settings</div>;
-};
-
-export default Settings;
+}

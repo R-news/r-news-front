@@ -11,7 +11,7 @@ interface HomePageProps {
     params: PageParams;
 }
 
-const Home = async ({ params }: HomePageProps) => {
+export default async function Home({ params }: HomePageProps) {
     const { lang } = params;
     const { shared } = await getDictionary(lang);
     const client = getQueryClient();
@@ -27,6 +27,4 @@ const Home = async ({ params }: HomePageProps) => {
             </Hydrate>
         </>
     );
-};
-
-export default Home;
+}

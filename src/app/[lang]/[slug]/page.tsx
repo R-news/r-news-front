@@ -1,5 +1,4 @@
 import { ArticleDetailsWithFeatures } from '@/PagesComposition/ArticleDetails';
-import { $api } from '@/shared/api/config';
 import { Locale } from '@/shared/config/i18n/i18n';
 
 interface ArticleDetailsProps {
@@ -10,7 +9,7 @@ interface ArticleDetailsProps {
     };
 }
 
-const ArticleDetails = async (props: ArticleDetailsProps) => {
+export default async function ArticleDetails(props: ArticleDetailsProps) {
     const resp = await fetch(`${__API__}api/articles/${props.params.slug}`);
     const data = await resp.json();
 
@@ -20,6 +19,4 @@ const ArticleDetails = async (props: ArticleDetailsProps) => {
             <ArticleDetailsWithFeatures article={data.article} />
         </>
     );
-};
-
-export default ArticleDetails;
+}

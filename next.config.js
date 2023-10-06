@@ -4,9 +4,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
 
-const nextConfig = {};
 function getApiUrl(dev) {
-    return dev ? 'http://localhost:3000/' : 'apiurl';
+    return dev
+        ? 'http://localhost:3000/'
+        : 'https://news-api-o6bd.onrender.com/';
 }
 
 function getFrontUrl(dev) {
