@@ -8,7 +8,7 @@ npm run dev - This command is used to start the frontend project in development 
 
 ```
 
-## Скрипты
+## Scripts
 
 -   `npm run dev` - Start the frontend project.
 -   `npm run build` - Build in production mode.
@@ -35,12 +35,9 @@ Link to documentation - [feature sliced design](https://feature-sliced.design/do
 
 ## Working with Translations
 
-The project uses the i18next library for handling translations.
-Translation files are stored in public/locales.
+The project uses the Next.js internationalization.
 
-For a smoother workflow, we recommend installing the plugin for example i18n ally for vscode.
-
-i18next Documentation - [https://react.i18next.com/](https://react.i18next.com/)
+Next.js internationalization - [docs]([https://react.i18next.com/](https://nextjs.org/docs/app/building-your-application/routing/internationalization))
 
 ---
 
