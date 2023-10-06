@@ -22,10 +22,7 @@ const preview: Preview = {
             ],
         },
     },
-    decorators: [
-        // ThemeDecorator,
-        GlobalStyleDecorator,
-    ],
+    decorators: [GlobalStyleDecorator],
 };
 
 export default preview;

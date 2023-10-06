@@ -37,10 +37,18 @@
 
     &.error {
         border: 2px solid var(--color-signal-negative-default);
+
+        &:hover {
+            background: var(--color-signal-negative-default);
+        }
     }
 
     &.success {
         border: 2px solid var(--color-signal-positive-default);
+
+        &:hover {
+            background: var(--color-signal-positive-default);
+        }
     }
 }
 
@@ -52,6 +60,15 @@
     transition-property: all;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
+
+    &.error {
+        background: var(--color-signal-negative-default);
+    }
+
+    &.success {
+        background: var(--color-signal-positive-default);
+    }
+
 }
 
 .square {

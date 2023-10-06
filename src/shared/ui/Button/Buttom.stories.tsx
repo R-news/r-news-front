@@ -43,3 +43,11 @@ export const Filled: Story = {
         variant: 'filled',
     },
 };
+
+export const IsLoading: Story = {
+    args: {
+        children: 'Text',
+        variant: 'filled',
+        isLoading: true,
+    },
+};

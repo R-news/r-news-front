@@ -7,6 +7,7 @@ import {
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 
+import { Loader } from '../Loader';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
@@ -61,6 +62,7 @@ export const Button = forwardRef(
             size = 'm',
             addonLeft,
             addonRight,
+            isLoading,
             color = 'normal',
             ...otherProps
         } = props;
@@ -86,7 +88,7 @@ export const Button = forwardRef(
                 ref={ref}
             >
                 <div className={cls.addonLeft}>{addonLeft}</div>
-                {children}
+                {isLoading ? <Loader /> : children}
                 <div className={cls.addonRight}>{addonRight}</div>
             </button>
         );

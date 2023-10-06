@@ -15,7 +15,7 @@ export default function Error({
 
     return (
         <div>
-            <h2>Article not found</h2>
+            <h2>Articles not found</h2>
             <button onClick={() => reset()}>Try again</button>
         </div>
     );
