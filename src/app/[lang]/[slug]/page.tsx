@@ -2,7 +2,6 @@ import { ArticleDetailsWithFeatures } from '@/PagesComposition/ArticleDetails';
 import { Locale } from '@/shared/config/i18n/i18n';
 
 interface ArticleDetailsProps {
-    classname?: string;
     params: {
         lang: Locale;
         slug: string;
