@@ -30,6 +30,6 @@
         ".next/types/**/*.ts",
         "next.config.js",
         "cconfig/build/buildWebpackConfig.js"
-    ],
+, "src/shared/config/auth/auth.ts"    ],
     "exclude": ["node_modules"]
 }

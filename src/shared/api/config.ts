@@ -2,6 +2,8 @@ import { QueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { cache } from 'react';
 
+axios.defaults.withCredentials = true;
+
 export const $api = axios.create({
     withCredentials: true,
     baseURL: __API__,

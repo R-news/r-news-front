@@ -1,8 +1,5 @@
-import { cookies } from 'next/headers';
 import type { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-
-import { $api } from '@/shared/api/config';
 
 export const authConfig: AuthOptions = {
     providers: [
@@ -16,21 +13,11 @@ export const authConfig: AuthOptions = {
                     required: true,
                 },
             },
-            async authorize(credentials, req) {
-                const { data } = await $api.post(
-                    '/api/auth/login',
-                    credentials,
-                );
+            async authorize(res, req) {
+                const parceUser = JSON.parse(res?.data);
 
-                cookies().set({
-                    name: 'refreshToken',
-                    value: data.userData.refreshToken,
-                    httpOnly: true,
-                    path: '/',
-                });
-
-                if (data.userData) {
-                    return data.userData;
+                if (parceUser.accessToken) {
+                    return parceUser;
                 }
 
                 return null;

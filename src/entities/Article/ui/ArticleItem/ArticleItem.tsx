@@ -34,13 +34,13 @@ export const ArticleItem = (props: ArticleItemProps) => {
     return (
         <Card padding="16" max className={css.card} as="li">
             <article>
+                <ArticleHeader
+                    avatar={user.avatar}
+                    username={user.username}
+                    createdAt={createdAt}
+                    userId={user._id}
+                />
                 <AppLink href={_id} withoutPadding>
-                    <ArticleHeader
-                        avatar={user.avatar}
-                        username={user.username}
-                        createdAt={createdAt}
-                        userId={user._id}
-                    />
                     <Text title={title} />
                     <Text text={subtitle} />
                     <AppImage

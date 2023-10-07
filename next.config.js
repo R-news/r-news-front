@@ -11,7 +11,7 @@ function getApiUrl(dev) {
 }
 
 function getFrontUrl(dev) {
-    return dev ? 'http://localhost:3001/' : 'fronturl';
+    return dev ? 'http://localhost:3001/' : 'https://newsb.vercel.app/';
 }
 
 module.exports = withBundleAnalyzer({

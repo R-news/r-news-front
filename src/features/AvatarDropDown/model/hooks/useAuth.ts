@@ -28,31 +28,44 @@ export const useAuth = () => {
         });
 
         if (data.userData) {
-            await signIn('credentials', {
+            const credentials = {
                 email: formData.get('email'),
                 password: formData.get('password'),
-                redirect: false,
-            });
-            router.refresh();
+            };
+            const { data } = await $api.post('/api/auth/login', credentials);
+
+            if (data.userData) {
+                await signIn('credentials', {
+                    data: JSON.stringify(data.userData),
+                    redirect: false,
+                });
+                router.refresh();
+            }
         }
     };
-
     const onLoginClick: FormEventHandler<HTMLFormElement> = async (event) => {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
 
-        const res = await signIn('credentials', {
+        const credentials = {
             email: formData.get('email'),
             password: formData.get('password'),
-            redirect: false,
-        });
+        };
+        const { data } = await $api.post('/api/auth/login', credentials);
 
-        if (res && !res.error) {
-            router.refresh();
-            router.push('/profile');
-        } else {
-            console.log(res);
+        if (data.userData) {
+            const res = await signIn('credentials', {
+                data: JSON.stringify(data.userData),
+                redirect: false,
+            });
+
+            if (res && !res.error) {
+                router.refresh();
+                router.push('/profile');
+            } else {
+                console.log(res);
+            }
         }
     };
 

@@ -7,8 +7,6 @@ import { Modal } from '@/shared/ui/Modal';
 
 import { useAuth } from '../model/hooks/useAuth';
 
-//TODO
-
 interface AuthModalProps {
     isOpen: boolean;
     onClose: () => void;
