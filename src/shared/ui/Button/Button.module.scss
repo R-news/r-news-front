@@ -9,6 +9,16 @@
         stroke-opacity: 0.9;
     }
 
+    &.withAddon {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        gap: 8px;
+    }
+    
+    &.addonLeft, .addonRight {
+        display: flex;
+    }
 }
 
 .clear {
@@ -19,7 +29,7 @@
 }
 
 .outline {
-    border: 3px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     border-radius: 8px;
     background: none;
     color: var(--primary-color);
@@ -110,3 +120,5 @@
 .fullWidth {
     width: 100%;
 }
+
+

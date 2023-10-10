@@ -13,11 +13,28 @@ interface AppImageProps extends ImageProps {
 }
 
 export const AppImage = (props: AppImageProps) => {
-    const { classname, src, alt, errorFallback, ...otherProps } = props;
+    const {
+        classname,
+        src,
+        alt,
+        width = 200,
+        height = 200,
+        errorFallback,
+        ...otherProps
+    } = props;
 
     if (!src) {
         return errorFallback;
     }
 
-    return <Image src={src} alt={alt} className={classname} {...otherProps} />;
+    return (
+        <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className={classname}
+            {...otherProps}
+        />
+    );
 };

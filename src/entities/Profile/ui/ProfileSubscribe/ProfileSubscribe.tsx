@@ -9,6 +9,7 @@ interface ProfileSubscribeprops {
 }
 export const ProfileSubscribe = ({ pageProfileId }: ProfileSubscribeprops) => {
     const session = useSession();
+    //@ts-ignore
     const isUserProfile = pageProfileId === session?.data?.user?.id;
     if (isUserProfile || session.status === 'unauthenticated') {
         return null;

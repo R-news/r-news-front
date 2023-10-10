@@ -1,6 +1,6 @@
 'use client';
 
-import { deleteCookie, getCookie, setCookie } from 'cookies-next';
+import { deleteCookie, setCookie } from 'cookies-next';
 import { signOut, useSession } from 'next-auth/react';
 
 import { axiosAuth } from '@/shared/api/config';
@@ -19,8 +19,8 @@ export const useRefreshToken = () => {
                 setCookie('refreshToken', res.data.userData.refreshToken);
             }
         } catch (e) {
-            // signOut({ redirect: false });
-            // deleteCookie('refreshToken');
+            signOut({ redirect: false });
+            deleteCookie('refreshToken');
         }
     };
     return refreshToken;

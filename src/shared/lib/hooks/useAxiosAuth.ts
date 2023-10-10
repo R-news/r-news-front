@@ -1,6 +1,6 @@
 'use client';
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { $api, axiosAuth } from '@/shared/api/config';
 
@@ -26,11 +26,11 @@ const useAxiosAuth = () => {
             },
             (error) => Promise.reject(error),
         );
-
         const responseIntercept = $api.interceptors.response.use(
             (response) => response,
             async (error) => {
                 const prevRequest = error?.config;
+
                 if (error?.response?.status === 401 && !prevRequest.sent) {
                     prevRequest.sent = true;
                     await refreshToken();

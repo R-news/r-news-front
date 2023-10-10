@@ -22,6 +22,7 @@ export const ProfileNav = async (props: ProifleNavProps) => {
     const navItems = getProfileNavItems(
         activePath!,
         langData,
+        //@ts-ignore
         session?.user?.role,
     );
 

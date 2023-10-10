@@ -7,10 +7,11 @@ import { CreateArticleModal } from './CreateArticleModal';
 
 interface CreateArticleButtonProps {
     langData: any;
+    content: any;
 }
 
 export const CreateArticleButton = (props: CreateArticleButtonProps) => {
-    const { langData } = props;
+    const { langData, content } = props;
     const [isOpen, setIsOpen] = useState<boolean>(false);
     return (
         <>
@@ -19,6 +20,7 @@ export const CreateArticleButton = (props: CreateArticleButtonProps) => {
             </Button>
             {isOpen && (
                 <CreateArticleModal
+                    content={content}
                     isOpen={isOpen}
                     onClose={() => setIsOpen((prev) => !prev)}
                 />
