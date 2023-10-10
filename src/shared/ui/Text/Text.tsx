@@ -8,60 +8,74 @@ export type TextVariant = 'primary' | 'error' | 'accent';
 
 export type TextAlign = 'right' | 'left' | 'center';
 
-export type TextSize = 's' | 'm' | 'l';
+export type TitleBold = 'normal' | 'medium' | 'bold';
+export type TextBold = 'normal' | 'medium' | 'bold';
+
+export type TitleSize = 's' | 'm' | 'l' | 'xl';
+export type TextSize = 's' | 'm' | 'l' | 'xl';
 
 interface TextProps {
     textAs?: ElementType;
+    titleAs?: ElementType;
     className?: string;
-    title?: string;
-    text?: string;
+    title?: string | number;
+    text?: string | number;
     variant?: TextVariant;
     align?: TextAlign;
-    size?: TextSize;
-    bold?: boolean;
+    titleBold?: TitleBold;
+    textBold?: TextBold;
+    titleSize?: TitleSize;
+    textSize?: TextSize;
 }
-
-type HeaderTagType = 'h1' | 'h2' | 'h3';
-
-const mapSizeToClass: Record<TextSize, string> = {
-    s: cls.size_s,
-    m: cls.size_m,
-    l: cls.size_l,
-};
-
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    s: 'h3',
-    m: 'h2',
-    l: 'h1',
-};
 
 export const Text = memo((props: TextProps) => {
     const {
-        textAs: Element = 'div',
+        textAs: Element = 'p',
+        titleAs: ElementTitle = 'h3',
         className,
         text,
         title,
         variant = 'primary',
         align = 'left',
-        size = 'm',
-        bold,
+        titleSize = 'l',
+        textSize = 'm',
+        titleBold = 'medium',
+        textBold = 'medium',
     } = props;
 
-    const HeaderTag = mapSizeToHeaderTag[size];
-    const sizeClass = mapSizeToClass[size];
+    const additionalClasses = [className, cls[variant], cls[align]];
 
-    const additionalClasses = [className, cls[variant], cls[align], sizeClass];
-
+    const haveTitle = title ? true : false;
     return (
-        <div
-            className={classNames(
-                cls.Text,
-                { [cls.bold]: bold },
-                additionalClasses,
+        <>
+            {haveTitle && (
+                <ElementTitle
+                    className={classNames(cls.title, {}, [
+                        cls[titleBold],
+                        cls[titleSize],
+                        className,
+                        ...additionalClasses,
+                    ])}
+                >
+                    {title}
+                </ElementTitle>
             )}
-        >
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <Element className={cls.text}>{text}</Element>}
-        </div>
+            {text && (
+                <Element
+                    className={classNames(
+                        cls.text,
+                        { [cls.haveTitle]: haveTitle },
+                        [
+                            cls[textBold],
+                            cls[textSize],
+                            className,
+                            ...additionalClasses,
+                        ],
+                    )}
+                >
+                    {text}
+                </Element>
+            )}
+        </>
     );
 });

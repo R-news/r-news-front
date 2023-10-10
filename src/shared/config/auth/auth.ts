@@ -5,7 +5,6 @@ export const authConfig: AuthOptions = {
     providers: [
         CredentialsProvider({
             credentials: {
-                username: { label: 'username', type: 'text', required: true },
                 email: { label: 'email', type: 'email', required: true },
                 password: {
                     label: 'password',
@@ -14,6 +13,7 @@ export const authConfig: AuthOptions = {
                 },
             },
             async authorize(res, req) {
+                //@ts-ignore
                 const parceUser = JSON.parse(res?.data);
 
                 if (parceUser.accessToken) {
@@ -32,5 +32,12 @@ export const authConfig: AuthOptions = {
             session.user = token as any;
             return session;
         },
+    },
+    pages: {
+        signIn: '/',
+        signOut: '/',
+        error: '/',
+        verifyRequest: '/',
+        newUser: '/',
     },
 };

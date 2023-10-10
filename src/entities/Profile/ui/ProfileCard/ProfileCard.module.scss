@@ -1,0 +1,20 @@
+.card {
+    position: relative;
+}
+
+.icon{
+    stroke: var(--color-accent)
+}
+
+.link{
+    display: flex;
+    gap: 8px;
+}
+
+.info {
+    margin-top: 20px
+}
+
+.settingsLink {
+    padding: 0;
+}

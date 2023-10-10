@@ -25,7 +25,7 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
     const items = [
         {
             content: langData.Profile,
-            href: getRouteProfile(lang, '1'),
+            href: getRouteProfile(lang, session?.user?.id),
         },
         {
             content: langData.Logout,

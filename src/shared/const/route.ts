@@ -13,7 +13,7 @@ export const getRouteMain = (lang: Locale) => `/${lang}/`;
 export const getRouteBookmarks = (lang: Locale) => `/${lang}/bookmarks`;
 export const getRouteMyFeed = (lang: Locale) => `/${lang}/myfeed`;
 export const getRouteProfile = (lang: Locale, id: string) =>
-    `/${lang}/profile/`;
+    `/${lang}/profile/${id}`;
 export const getRouteForbidden = () => '/forbidden';
 
 // export function getRoutes(lang:Locale): Record<string, AppRoutes> {

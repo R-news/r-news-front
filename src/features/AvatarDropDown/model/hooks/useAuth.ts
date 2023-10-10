@@ -62,7 +62,6 @@ export const useAuth = () => {
 
             if (res && !res.error) {
                 router.refresh();
-                router.push('/profile');
             } else {
                 console.log(res);
             }

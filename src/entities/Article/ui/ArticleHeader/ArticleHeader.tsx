@@ -6,6 +6,8 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
+import cls from './ArticleHeader.module.scss';
+
 interface ArticleHeaderProps {
     avatar?: string;
     createdAt?: string;
@@ -19,11 +21,11 @@ const ArticleHeader = (props: ArticleHeaderProps) => {
             <AppLink href={`/profile/${userId}`} withoutPadding>
                 <HStack gap="16">
                     <Avatar size={25} src={avatar} />
-                    <Text text={username || 'Unknown'} bold />
+                    <Text text={username || 'Unknown'} textBold={'bold'} />
                 </HStack>
             </AppLink>
 
-            <Text text={getDate(createdAt)} />
+            <Text text={getDate(createdAt)} className={cls.date} />
         </HStack>
     );
 };

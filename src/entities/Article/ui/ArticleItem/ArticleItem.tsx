@@ -4,7 +4,7 @@ import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import { ArticleUpdate } from '../../model/types/artilce';
@@ -33,30 +33,37 @@ export const ArticleItem = (props: ArticleItemProps) => {
 
     return (
         <Card padding="16" max className={css.card} as="li">
-            <article>
+            <VStack as={'article'} gap="8">
                 <ArticleHeader
                     avatar={user.avatar}
                     username={user.username}
                     createdAt={createdAt}
                     userId={user._id}
                 />
-                <AppLink href={_id} withoutPadding>
-                    <Text title={title} />
-                    <Text text={subtitle} />
-                    <AppImage
-                        //@ts-ignore
-                        src={img}
-                        sizes="100vw"
-                        width={0}
-                        height={300}
-                        //@ts-ignore
-                        alt={title}
-                        className={css.img}
-                    />
-                    <Text text={`${views} ${langData?.views}`} />
+
+                <AppLink href={`articles/${_id}`} withoutPadding>
+                    <VStack as={'article'} gap="8">
+                        <Text
+                            title={title}
+                            titleAs={'h2'}
+                            text={subtitle}
+                            titleBold={'bold'}
+                        />
+                        <AppImage
+                            //@ts-ignore
+                            src={img}
+                            sizes="100vw"
+                            width={0}
+                            height={300}
+                            //@ts-ignore
+                            alt={title}
+                            className={css.img}
+                        />
+                        <Text text={`${views} ${langData?.views}`} />
+                    </VStack>
                 </AppLink>
                 {ButtonsWidget && ButtonsWidget}
-            </article>
+            </VStack>
         </Card>
     );
 };

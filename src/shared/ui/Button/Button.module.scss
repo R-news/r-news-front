@@ -19,6 +19,7 @@
 }
 
 .outline {
+    border: 3px solid var(--color-accent);
     border-radius: 8px;
     background: none;
     color: var(--primary-color);
@@ -32,11 +33,11 @@
     }
 
     &.normal {
-        border: 2px solid var(--color-accent);
+        border-color: var(--color-accent);
     }
 
     &.error {
-        border: 2px solid var(--color-signal-negative-default);
+        border-color: var(--color-signal-negative-default);
 
         &:hover {
             background: var(--color-signal-negative-default);
@@ -44,7 +45,7 @@
     }
 
     &.success {
-        border: 2px solid var(--color-signal-positive-default);
+        border-color: var(--color-signal-positive-default);
 
         &:hover {
             background: var(--color-signal-positive-default);

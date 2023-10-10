@@ -22,8 +22,12 @@ export const ArticleDetails = ({
                     createdAt={article.createdAt}
                     userId={article.userId._id}
                 />
-                <Text title={article?.title} size="l" bold />
-                <Text title={article?.subtitle} />
+                <Text
+                    title={article?.title}
+                    titleBold={'bold'}
+                    titleAs={'h1'}
+                    text={article?.subtitle}
+                />
                 {article.img && (
                     <AppImage
                         src={article?.img}

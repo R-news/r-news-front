@@ -32,6 +32,7 @@ export const AppLink = forwardRef((props: AppLinkProps, ref) => {
         withoutPadding,
         ...otherProps
     } = props;
+
     return (
         <Link
             //@ts-ignore TODO

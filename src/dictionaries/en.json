@@ -15,6 +15,14 @@
         "subscription": "Subscriptions"
     },
     "shared": {
-        "views": "views"
+        "views": "views",
+        "userRating": "Rating"
+    },
+    "profile":{
+        "createdAt": "Registration date",
+        "userRating": "Rating",
+        "subscribers": "Subscribers",
+        "articles": "Articles",
+        "comments": "Comments"
     }
 }

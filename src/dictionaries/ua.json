@@ -15,6 +15,12 @@
         "subscription": "Підписки"
     },
     "shared": {
-        "views": "покази"
+        "views": "покази",
+        "userRating": "Рейтинг"
+    },
+    "profile":{
+        "createdAt": "Дата реєстрації",
+        "userRating": "Рейтинг",
+        "subscribers": "Пыдписники"
     }
 }

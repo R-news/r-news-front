@@ -25,12 +25,12 @@ export const ArticleDetailsWithFeatures = ({
             <ArticleDetails article={article} />
             <ArticleButtons
                 likesValue={3}
-                onLikeClick={() => onLikeClick('2')}
+                onLikeClick={() => onLikeClick(article._id)}
                 onCommentClick={onCommentClick}
-                onBookmarkClick={() => onBookmarkClick('2')}
-                isUserBookmark={userBookmarks?.includes('2')}
-                isLiked={userLikes?.includes('2')}
-                commentsValue={32}
+                onBookmarkClick={() => onBookmarkClick(article._id)}
+                isUserBookmark={userBookmarks?.includes(article._id)}
+                isLiked={userLikes?.includes(article._id)}
+                commentsValue={article?.comments?.length}
             />
         </Card>
     );
