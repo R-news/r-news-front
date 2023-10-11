@@ -44,7 +44,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
 
     const nextTheme = deriveNextTheme(theme);
 
-    const onClick: MouseEventHandler<HTMLButtonElement> = async () => {
+    const onClick = async () => {
         setTheme(nextTheme);
 
         await fetch(`${__FRONT_URL__}api/theme`, {
@@ -59,7 +59,7 @@ export const ThemeSwitcher = ({ themeCookie }: ThemeSwitcherProps) => {
     return (
         <Switch
             isChecked={theme !== 'app_light_theme'}
-            onChange={onClick}
+            onChange={() => onClick()}
             addonLeft={<Icon Svg={Moon} width={25} height={25} />}
             addonRight={<Icon Svg={Sun} width={25} height={25} />}
         />

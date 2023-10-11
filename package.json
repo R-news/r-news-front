@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "prettier": "npx prettier --write **/*.{ts,tsx,json}",
-        "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
+        "lint:ts": "eslint \"./src/**/*.{ts,tsx}\" ",
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
@@ -17,10 +17,12 @@
         "prepare": "husky install"
     },
     "lint-staged": {
-        "**/*.{ts,tsx}": [
-            "eslint"
+        "*.{ts,tsx}": [
+          "eslint",
+          "prettier --write",
+          "git add"
         ]
-    },
+      },
     "dependencies": {
         "@formatjs/intl-localematcher": "^0.4.2",
         "@headlessui/react": "^1.7.17",

@@ -62,6 +62,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
             >
                 <HListBox.Button
                     as={Button}
+                    //@ts-ignore
                     disabled={readonly}
                     addonRight={
                         <Icon

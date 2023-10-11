@@ -4,8 +4,6 @@ import { useGetBookmarks } from '@/entities/User';
 import type { langType } from '@/shared/config/i18n/dictionary';
 import { ArticleButtons } from '@/widgets/ArticleButtons';
 
-import { useArticlesButtons } from '../../../../entities/Article/model/hooks/useArticlesButtons';
-
 interface ArticlesListWithButtonsProps {
     classname?: string;
     langData?: langType['shared'];
@@ -15,14 +13,6 @@ export const ArticlesListWithButtons = ({
     langData,
 }: ArticlesListWithButtonsProps) => {
     const { data: { data } = {}, isLoading } = useGetBookmarks();
-
-    const {
-        onLikeClick,
-        onCommentClick,
-        onBookmarkClick,
-        userLikes,
-        userBookmarks,
-    } = useArticlesButtons();
 
     if (isLoading) {
         return <div>Loading</div>;
@@ -38,13 +28,7 @@ export const ArticlesListWithButtons = ({
                     ButtonsWidget={
                         <ArticleButtons
                             likesValue={article.likes.length}
-                            onLikeClick={() => onLikeClick(article._id)}
-                            onCommentClick={onCommentClick}
-                            onBookmarkClick={() => onBookmarkClick(article._id)}
-                            isUserBookmark={userBookmarks?.includes(
-                                article._id,
-                            )}
-                            isLiked={userLikes?.includes(article._id)}
+                            id={article._id}
                             commentsValue={article?.comments}
                         />
                     }

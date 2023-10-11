@@ -53,11 +53,11 @@ export const MediaBlock = (props: MediaBlockProps) => {
                 <input value={link} onChange={(e) => setLink(e.target.value)} />
                 <input
                     value={width}
-                    onChange={(e) => setWidth(e.target.value)}
+                    onChange={(e) => setWidth(parseFloat(e.target.value))}
                 />
                 <input
                     value={height}
-                    onChange={(e) => setHeight(e.target.value)}
+                    onChange={(e) => setHeight(parseFloat(e.target.value))}
                 />
             </>
         );

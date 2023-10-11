@@ -27,16 +27,11 @@ export const ArticleButtons = (props: ArticleButtonsProps) => {
     const isUserBookmark = userBookmarks?.includes(id);
     const isLiked = userLikes?.includes(id);
 
-    const like = (id: string) => {
-        onLikeClick(id);
-        // revalidate();
-    };
-
     return (
         <HStack gap="4" className={classname}>
             <LikeBtn
                 value={likesValue}
-                onLikeClick={() => like(id)}
+                onLikeClick={() => onLikeClick(id)}
                 isLiked={isLiked}
             />
             <CommentsButton

@@ -23,12 +23,6 @@ export const WithLabel: Story = {
     },
 };
 
-export const NoCheck: Story = {
-    args: {
-        cheked: false,
-    },
-};
-
 export const Disabled: Story = {
     args: {
         disabled: true,
