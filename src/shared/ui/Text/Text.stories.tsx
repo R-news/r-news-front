@@ -21,6 +21,5 @@ export const Primary: Story = {
     args: {
         text: 'Text',
         title: 'Title',
-        size: 'l',
     },
 };

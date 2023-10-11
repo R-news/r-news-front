@@ -14,13 +14,13 @@
         "test:unit": "jest --watch",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
         "storybook:build": "storybook build -c ./config/storybook",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "type-check": "tsc --noEmit"
     },
     "lint-staged": {
         "*.{ts,tsx}": [
           "eslint",
-          "prettier --write",
-          "git add"
+          "prettier --write"
         ]
       },
     "dependencies": {

@@ -22,22 +22,9 @@ export const Normal: Story = {
         // ...
     },
     render: () => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const onLikeClick = () => console.log(1);
-        const onCommentClick = () => console.log(1);
-        const onBookmarkClick = () => console.log(1);
-
         return (
             <div>
-                <ArticleButtons
-                    likesValue={32}
-                    onLikeClick={() => onLikeClick()}
-                    onCommentClick={onCommentClick}
-                    onBookmarkClick={() => onBookmarkClick()}
-                    isUserBookmark={true}
-                    isLiked={false}
-                    commentsValue={323}
-                />
+                <ArticleButtons likesValue={32} commentsValue={323} id={''} />
             </div>
         );
     },
