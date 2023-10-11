@@ -1,3 +1,6 @@
+'use client';
+
+import { useArticlesButtons } from '@/entities/Article';
 import { BookmarksButton } from '@/features/BookmarksButton';
 import { CommentsButton } from '@/features/CommentsButton';
 import { LikeBtn } from '@/features/LikeBtn';
@@ -5,31 +8,35 @@ import { HStack } from '@/shared/ui/Stack';
 
 interface ArticleButtonsProps {
     classname?: string;
-    isLiked?: boolean;
-    isUserBookmark?: boolean;
     likesValue: number;
     commentsValue?: number;
-    onLikeClick: () => void;
-    onBookmarkClick: () => void;
-    onCommentClick: () => void;
+    id: string;
+    revalidate?: any;
 }
 
 export const ArticleButtons = (props: ArticleButtonsProps) => {
+    const { classname, likesValue, commentsValue, id, revalidate } = props;
     const {
-        classname,
-        likesValue,
-        commentsValue,
         onLikeClick,
-        isLiked,
-        isUserBookmark,
-        onBookmarkClick,
         onCommentClick,
-    } = props;
+        onBookmarkClick,
+        userLikes,
+        userBookmarks,
+    } = useArticlesButtons(revalidate);
+
+    const isUserBookmark = userBookmarks?.includes(id);
+    const isLiked = userLikes?.includes(id);
+
+    const like = (id: string) => {
+        onLikeClick(id);
+        // revalidate();
+    };
+
     return (
         <HStack gap="4" className={classname}>
             <LikeBtn
                 value={likesValue}
-                onLikeClick={onLikeClick}
+                onLikeClick={() => like(id)}
                 isLiked={isLiked}
             />
             <CommentsButton
@@ -38,7 +45,7 @@ export const ArticleButtons = (props: ArticleButtonsProps) => {
                 value={commentsValue}
             />
             <BookmarksButton
-                onClick={onBookmarkClick}
+                onClick={() => onBookmarkClick(id)}
                 isUserBookmark={isUserBookmark}
             />
         </HStack>

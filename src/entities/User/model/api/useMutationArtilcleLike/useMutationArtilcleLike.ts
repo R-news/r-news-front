@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { QUERY_KEY } from '@/shared/const/queryKeys';
 import useAxiosAuth from '@/shared/lib/hooks/useAxiosAuth';
 
-export const useMutationArtilcleLike = () => {
+export const useMutationArtilcleLike = (revalidate?: any) => {
     const client = useQueryClient();
     const axiosAuth = useAxiosAuth();
     const { mutate: likeArticle, data } = useMutation(
@@ -14,13 +14,17 @@ export const useMutationArtilcleLike = () => {
                 client.invalidateQueries([QUERY_KEY.HOME_ARTICLES]);
                 client.invalidateQueries([QUERY_KEY.USER_DATA]);
                 client.invalidateQueries([QUERY_KEY.USER_BOOKMARKS]);
+                if (revalidate) {
+                    revalidate();
+                }
             },
-            onError: () => {
+            onError: (e) => {
                 alert('error');
             },
         },
     );
     return {
         likeArticle,
+        data,
     };
 };

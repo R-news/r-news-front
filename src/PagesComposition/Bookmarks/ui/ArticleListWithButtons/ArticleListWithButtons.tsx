@@ -1,13 +1,14 @@
 'use client';
 import { ArticleItem, ArticleList, ArticleUpdate } from '@/entities/Article';
 import { useGetBookmarks } from '@/entities/User';
+import type { langType } from '@/shared/config/i18n/dictionary';
 import { ArticleButtons } from '@/widgets/ArticleButtons';
 
 import { useArticlesButtons } from '../../../../entities/Article/model/hooks/useArticlesButtons';
 
 interface ArticlesListWithButtonsProps {
     classname?: string;
-    langData?: any;
+    langData?: langType['shared'];
 }
 
 export const ArticlesListWithButtons = ({

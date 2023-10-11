@@ -32,22 +32,13 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     const cookieStore = cookies();
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
-    const loaderTheme =
-        themeCookie === 'app_dark_theme'
-            ? 'var(--color-dark)'
-            : 'var(--color-light)';
     return (
         <html
             lang={params.lang}
             className={`${montserrat.variable}`}
             data-theme={themeCookie}
         >
-            <body
-                className={`app`}
-                style={{
-                    background: loaderTheme,
-                }}
-            >
+            <body className={`app ${themeCookie}`}>
                 <AppProviders>
                     <Navbar themeCookie={themeCookie} lang={params.lang} />
                     <StickyContentLayout

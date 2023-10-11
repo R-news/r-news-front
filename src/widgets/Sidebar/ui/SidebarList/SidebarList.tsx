@@ -1,5 +1,6 @@
 'use client';
 
+import type { langType } from '@/shared/config/i18n/dictionary';
 import { Locale } from '@/shared/config/i18n/i18n';
 import { VStack } from '@/shared/ui/Stack';
 
@@ -9,7 +10,7 @@ import { SidebarItems } from '../SidebarItems/SidebarItems';
 interface SidebarListProps {
     classname?: string;
     lang?: Locale;
-    langData?: any;
+    langData?: langType['sidebar'];
     session: any;
 }
 

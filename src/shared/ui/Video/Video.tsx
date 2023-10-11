@@ -1,9 +1,11 @@
 'use client';
-import ReactPlayer from 'react-player';
+import dynamic from 'next/dynamic';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './Video.module.scss';
+
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 interface VideoProps {
     classname?: string;

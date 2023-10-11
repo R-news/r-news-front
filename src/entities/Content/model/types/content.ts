@@ -1,5 +1,4 @@
 export enum Content {
-    TITLE = 'Title',
     SUBTITLE = 'Subtitle',
     TEXT = 'Text',
     MAIN_IMAGE = 'Main image',

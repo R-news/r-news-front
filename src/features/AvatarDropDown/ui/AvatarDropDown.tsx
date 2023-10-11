@@ -1,6 +1,7 @@
 'use client';
 
 import { useGetUserData } from '@/entities/User';
+import type { langType } from '@/shared/config/i18n/dictionary';
 import type { Locale } from '@/shared/config/i18n/i18n';
 import { getRouteProfile } from '@/shared/const/route';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -12,7 +13,7 @@ import { AuthModal } from './AuthModal';
 
 interface AvatarDropDownProps {
     lang: Locale;
-    langData: any;
+    langData: langType['navbar'];
     session: any;
 }
 

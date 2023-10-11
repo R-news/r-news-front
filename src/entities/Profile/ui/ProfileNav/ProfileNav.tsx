@@ -1,6 +1,7 @@
 import { getServerSession } from 'next-auth';
 
 import { authConfig } from '@/shared/config/auth/auth';
+import type { langType } from '@/shared/config/i18n/dictionary';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { HStack } from '@/shared/ui/Stack';
 import { Tabs } from '@/shared/ui/Tabs';
@@ -12,7 +13,7 @@ import cls from './ProfileNav.module.scss';
 interface ProifleNavProps {
     classname?: string;
     activePath?: string;
-    langData?: string;
+    langData?: langType['profile'];
 }
 
 export const ProfileNav = async (props: ProifleNavProps) => {

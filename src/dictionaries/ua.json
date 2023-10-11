@@ -22,5 +22,18 @@
         "createdAt": "Дата реєстрації",
         "userRating": "Рейтинг",
         "subscribers": "Пыдписники"
+    },
+    "createArticle": {
+        "publish": "Опублікувати",
+        "TITLE": "Заголовок",
+        "SUBTITLE": "Підзаголовок",
+        "TEXT": "Текст",
+        "MAIN_IMAGE": "Головне зображення",
+        "IMAGE": "Зображення",
+        "VIDEO": "Відео",
+        "CODE": "Код",
+        "ARTICLETYPE": "Тип статті",
+        "SelectContentType": "Виберіть тип контенту"
+
     }
 }

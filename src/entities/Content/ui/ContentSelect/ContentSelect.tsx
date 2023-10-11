@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 
+import type { langType } from '@/shared/config/i18n/dictionary';
 import { ListBox } from '@/shared/ui/Popups';
 
 import { Content } from '../../model/types/content';
@@ -9,21 +10,17 @@ interface CountrySelectProps {
     value?: Content;
     onChange?: (value: Content) => void;
     readonly?: boolean;
+    langData: langType['createArticle'];
 }
 
-const options = [
-    { value: Content.TITLE, content: Content.TITLE },
-    { value: Content.SUBTITLE, content: Content.SUBTITLE },
-    { value: Content.TEXT, content: Content.TEXT },
-    { value: Content.MAIN_IMAGE, content: Content.MAIN_IMAGE },
-    { value: Content.IMAGE, content: Content.IMAGE },
-    { value: Content.CODE, content: Content.CODE },
-    { value: Content.VIDEO, content: Content.VIDEO },
-    { value: Content.ARTICLETYPE, content: Content.ARTICLETYPE },
-];
-
 export const ContentSelect = memo(
-    ({ className, value, onChange, readonly }: CountrySelectProps) => {
+    ({
+        className,
+        value,
+        onChange,
+        readonly,
+        langData,
+    }: CountrySelectProps) => {
         const onChangeHandler = useCallback(
             (value: string) => {
                 onChange?.(value as Content);
@@ -31,15 +28,21 @@ export const ContentSelect = memo(
             [onChange],
         );
 
+        const options = (Object.keys(Content) as (keyof typeof Content)[]).map(
+            (key) => ({
+                value: Content[key],
+                content: langData[key],
+            }),
+        );
+
         const props = {
             className,
             value,
-            defaultValue: 'Choose content',
-            label: 'Choose content',
+            defaultValue: langData['SelectContentType'],
             items: options,
             onChange: onChangeHandler,
             readonly,
-            direction: 'top right' as const,
+            direction: 'bottom right' as const,
         };
 
         return <ListBox {...props} />;

@@ -15,6 +15,9 @@ function getFrontUrl(dev) {
 }
 
 module.exports = withBundleAnalyzer({
+    experimental: {
+        serverActions: true,
+    },
     images: {
         remotePatterns: [
             {

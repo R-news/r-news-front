@@ -6,8 +6,8 @@ import {
     useMutationArtilcleLike,
 } from '@/entities/User';
 
-export const useArticlesButtons = () => {
-    const { likeArticle } = useMutationArtilcleLike();
+export const useArticlesButtons = (revalidate?: any) => {
+    const { likeArticle } = useMutationArtilcleLike(revalidate);
     const { addBookmark } = useMutationAddBookmark();
     const { data: { data: user } = {} } = useGetUserData();
     const userLikes = user?.userData?.likes;
@@ -24,6 +24,7 @@ export const useArticlesButtons = () => {
     );
 
     const onCommentClick = () => console.log(1);
+
     return {
         onLikeClick,
         onCommentClick,

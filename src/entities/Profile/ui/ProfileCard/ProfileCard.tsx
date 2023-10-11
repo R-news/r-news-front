@@ -1,10 +1,10 @@
 import { headers } from 'next/headers';
 
 import Settings from '@/shared/assets/icons/settings.svg';
+import type { langType } from '@/shared/config/i18n/dictionary';
 import { getDate } from '@/shared/lib/helpers/getDate/getDate';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
-import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Rating } from '@/shared/ui/Rating';
@@ -18,7 +18,7 @@ import cls from './ProfileCard.module.scss';
 interface ProfileCardProps {
     classname?: string;
     user: any;
-    langData: any;
+    langData: langType['profile'];
 }
 
 export const ProfileCard = async (props: ProfileCardProps) => {

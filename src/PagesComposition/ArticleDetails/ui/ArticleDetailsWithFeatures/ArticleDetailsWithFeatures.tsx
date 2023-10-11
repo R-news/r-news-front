@@ -1,35 +1,22 @@
-'use client';
-import {
-    Article,
-    ArticleDetails,
-    useArticlesButtons,
-} from '@/entities/Article';
+import { Article, ArticleDetails } from '@/entities/Article';
 import { Card } from '@/shared/ui/Card';
 import { ArticleButtons } from '@/widgets/ArticleButtons';
 
 interface ArticleDetailsWithFeaturesProps {
     article: Article;
+    revalidate: any;
 }
-export const ArticleDetailsWithFeatures = ({
+export const ArticleDetailsWithFeatures = async ({
     article,
+    revalidate,
 }: ArticleDetailsWithFeaturesProps) => {
-    const {
-        onLikeClick,
-        onCommentClick,
-        onBookmarkClick,
-        userLikes,
-        userBookmarks,
-    } = useArticlesButtons();
     return (
         <Card padding="16">
             <ArticleDetails article={article} />
             <ArticleButtons
-                likesValue={3}
-                onLikeClick={() => onLikeClick(article._id)}
-                onCommentClick={onCommentClick}
-                onBookmarkClick={() => onBookmarkClick(article._id)}
-                isUserBookmark={userBookmarks?.includes(article._id)}
-                isLiked={userLikes?.includes(article._id)}
+                revalidate={revalidate}
+                likesValue={article.likes.length}
+                id={article._id}
                 commentsValue={article?.comments?.length}
             />
         </Card>

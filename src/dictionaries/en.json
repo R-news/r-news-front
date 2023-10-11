@@ -24,5 +24,17 @@
         "subscribers": "Subscribers",
         "articles": "Articles",
         "comments": "Comments"
+    },
+    "createArticle": {
+        "publish": "Publish",
+        "TITLE": "Title",
+        "SUBTITLE": "Subtitle",
+        "TEXT": "Text",
+        "MAIN_IMAGE": "Main image",
+        "IMAGE": "Image",
+        "VIDEO": "Video",
+        "CODE": "Code",
+        "ARTICLETYPE": "Article type",
+        "SelectContentType": "Select content type"
     }
 }

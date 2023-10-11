@@ -2,8 +2,6 @@
 import { SessionProvider as AuthSessionProvider } from 'next-auth/react';
 import { ReactNode } from 'react';
 
-import { useGetUserData } from '@/entities/User';
-
 interface SessionProviderProps {
     children: ReactNode;
 }

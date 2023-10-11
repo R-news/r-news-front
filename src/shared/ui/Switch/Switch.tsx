@@ -1,5 +1,5 @@
 import { Switch as HeadlessSwitch } from '@headlessui/react';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 
@@ -7,10 +7,10 @@ import cls from './Switch.module.scss';
 
 interface SwitchProps {
     isChecked?: boolean;
-    onChange?: any;
+    onChange: () => void;
     classname?: string;
-    addonLeft?: any;
-    addonRight?: any;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 export const Switch = (props: SwitchProps) => {

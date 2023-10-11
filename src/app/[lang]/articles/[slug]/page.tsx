@@ -1,3 +1,5 @@
+import { revalidatePath, revalidateTag } from 'next/cache';
+
 import { ArticleDetailsWithFeatures } from '@/PagesComposition/ArticleDetails';
 import { Locale } from '@/shared/config/i18n/i18n';
 
@@ -9,13 +11,23 @@ interface ArticleDetailsProps {
 }
 
 export default async function ArticleDetails(props: ArticleDetailsProps) {
-    const resp = await fetch(`${__API__}api/articles/${props.params.slug}`);
+    const resp = await fetch(`${__API__}api/articles/${props.params.slug}`, {
+        cache: 'no-store',
+        next: { tags: [props.params.slug] },
+    });
     const data = await resp.json();
+
+    async function revalidate() {
+        'use server';
+        revalidateTag(props.params.slug);
+    }
 
     return (
         <>
-            <div>{props.params.slug} page id</div>
-            <ArticleDetailsWithFeatures article={data.article} />
+            <ArticleDetailsWithFeatures
+                article={data.article}
+                revalidate={revalidate}
+            />
         </>
     );
 }

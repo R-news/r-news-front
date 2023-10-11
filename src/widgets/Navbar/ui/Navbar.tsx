@@ -18,7 +18,7 @@ interface NavbarProps {
 }
 export const Navbar = async ({ themeCookie, lang }: NavbarProps) => {
     const session = await getServerSession(authConfig);
-    const { navbar } = await getDictionary(lang);
+    const { navbar, createArticle } = await getDictionary(lang);
 
     return (
         <HStack as="header" className={cls.Navbar} justify="between">
@@ -26,8 +26,9 @@ export const Navbar = async ({ themeCookie, lang }: NavbarProps) => {
             <HStack gap={'16'}>
                 {session?.user && (
                     <CreateArticleButton
-                        content={<CreateArticle />}
+                        content={<CreateArticle langData={createArticle} />}
                         langData={navbar}
+                        langDataCreateArticle={createArticle}
                     />
                 )}
                 <ThemeSwitcher themeCookie={themeCookie} />

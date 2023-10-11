@@ -22,6 +22,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Dialog open={isOpen} onClose={onClose}>
+            <Dialog.Title></Dialog.Title>
             <Overlay ariaHidden classname={cls.overlay} />
             <div className={cls.container}>
                 <Dialog.Panel className={cls.modal}>

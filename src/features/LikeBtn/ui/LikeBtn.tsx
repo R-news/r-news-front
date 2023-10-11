@@ -1,3 +1,4 @@
+'use client';
 import Like from '@/shared/assets/icons/like.svg';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Icon } from '@/shared/ui/Icon';

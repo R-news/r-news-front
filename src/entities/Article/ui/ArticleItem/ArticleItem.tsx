@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { langType } from '@/shared/config/i18n/dictionary';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -14,7 +15,7 @@ import css from './ArticleItem.module.scss';
 interface ArticleItemProps extends ArticleUpdate {
     classname?: string;
     ButtonsWidget?: ReactNode;
-    langData?: any;
+    langData?: langType['shared'];
 }
 
 export const ArticleItem = (props: ArticleItemProps) => {

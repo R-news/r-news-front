@@ -1,24 +1,20 @@
 'use client';
 
-import { ContentSelect } from '@/entities/Content';
-import { classNames } from '@/shared/lib/helpers/classNames';
+import type { langType } from '@/shared/config/i18n/dictionary';
 
-import { useGetCreateArticles } from '../../model/hooks/useGetCreateArticles';
-import CreateArticleList from '../CreateArticleList/CreateArticleList';
-import cls from './CreateArticle.module.scss';
+import CreateArticleProvider from '../../model/context/createArticleContext';
+import { CreateArticleComposition } from '../CreateArticleComposition/CreateArticleComposition';
 
 interface CreateArticleProps {
-    classname?: string;
+    langData: langType['createArticle'];
 }
 
 export const CreateArticle = (props: CreateArticleProps) => {
-    const { classname } = props;
-    const { renderElements, onChangeDropDown } = useGetCreateArticles();
+    const { langData } = props;
 
     return (
-        <div className={classNames(cls.CreateArticle, {}, [classname])}>
-            <ContentSelect onChange={onChangeDropDown} />
-            <CreateArticleList renderElements={renderElements} />
-        </div>
+        <CreateArticleProvider>
+            <CreateArticleComposition langData={langData} />
+        </CreateArticleProvider>
     );
 };

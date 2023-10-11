@@ -18,7 +18,6 @@ interface CheckboxProps {
     rules?: object;
     name?: string;
     ariaLabel?: string;
-    [key: string]: any; // Allow additional props
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
