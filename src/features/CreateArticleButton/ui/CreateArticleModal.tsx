@@ -1,3 +1,4 @@
+'use client';
 import { ReactNode } from 'react';
 
 import { langType } from '@/shared/config/i18n/dictionary';
@@ -18,7 +19,7 @@ export const CreateArticleModal = (props: CreateArticleModalProps) => {
         <Modal isOpen={isOpen} onClose={onClose}>
             <VStack gap="8">
                 {content}
-                <Button>{langData.publish}</Button>
+                <Button> {langData.publish}</Button>
             </VStack>
         </Modal>
     );

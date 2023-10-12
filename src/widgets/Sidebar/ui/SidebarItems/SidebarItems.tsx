@@ -1,7 +1,6 @@
 'use client';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
-import { classNames } from '@/shared/lib/helpers/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 
 interface SidebarItemsProps {
@@ -11,14 +10,15 @@ interface SidebarItemsProps {
 }
 
 export const SidebarItems = (props: SidebarItemsProps) => {
-    const { classname, href, text } = props;
+    const { href, text } = props;
     const activeSegment = useSelectedLayoutSegment();
 
     const isActive = activeSegment === href.split('/')[2]?.replace('/', '');
 
+    const isMain = activeSegment === null && href.split('/')[2] === '';
     return (
         <li>
-            <AppLink href={href} isActive={isActive}>
+            <AppLink href={href} isActive={isMain || isActive}>
                 {text}
             </AppLink>
         </li>

@@ -7,7 +7,8 @@
         "Write": "Write"
     },
     "sidebar": {
-        "Home": "Home",
+        "Home": "Latest",
+        "Popular": "Popular",
         "Bookmarks": "Bookmarks",
         "My feed": "Me feed"
     },

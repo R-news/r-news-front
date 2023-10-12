@@ -4,6 +4,7 @@
 
 .overlay {
     position: fixed;
+    backdrop-filter: blur(10px);
     background-color: var(--modal-overlay);
     inset: 0;
 }

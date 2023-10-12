@@ -20,6 +20,7 @@ export function getsidebarItems(
 
     return [
         { path: getRouteMain(lang), text: sidebar['Home'] },
+        { path: `/${lang}/popular`, text: sidebar['Popular'] },
         ...needUserAuth,
     ];
 }

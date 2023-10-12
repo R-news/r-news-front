@@ -5,17 +5,16 @@ import { QUERY_KEY } from '@/shared/const/queryKeys';
 import { STALE_TIME } from '@/shared/const/reactQueryTimes';
 import { errorMessage } from '@/shared/lib/alerts/error';
 
-export const useGetHomeArticles = () => {
+export const useGetPopularArticles = () => {
     const queryResp = useQuery(
-        [QUERY_KEY.HOME_ARTICLES],
+        [QUERY_KEY.POPULAR_ARTICLES],
         async () => {
-            const resp = await $api.get(`api/articles/home`);
+            const resp = await $api.get(`api/articles/popular`);
 
             return resp;
         },
         {
-            // refetchOnWindowFocus: false,
-            // refetchOnReconnect: false,
+            refetchOnMount: true,
             refetchInterval: STALE_TIME,
             onError: (e: { response: { data: { message: string } } }) => {
                 errorMessage(e.response.data.message);
@@ -25,7 +24,7 @@ export const useGetHomeArticles = () => {
     return queryResp;
 };
 
-export const getHomeArticles = async () => {
-    const resp = await $api.get('api/articles/home');
+export const getPopularArticles = async () => {
+    const resp = await $api.get('api/articles/popular');
     return resp.data.articles;
 };

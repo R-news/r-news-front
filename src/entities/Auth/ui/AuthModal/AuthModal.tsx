@@ -5,23 +5,18 @@ import { useState } from 'react';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 
-import { useAuth } from '../model/hooks/useAuth';
+import { useAuth } from '../../model/hooks/useAuth';
 
-interface AuthModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
+export const AuthModal = () => {
     const [isLogin, setisLogin] = useState<boolean>(false);
-    const { onRegisterClick, onLoginClick } = useAuth();
 
+    const { onRegisterClick, onLoginClick } = useAuth();
     const onChaneFormClick = () => {
         setisLogin((prev) => !prev);
     };
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={true}>
             <form
                 onSubmit={isLogin ? onLoginClick : onRegisterClick}
                 className="login-form"

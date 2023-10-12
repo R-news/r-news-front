@@ -1,4 +1,7 @@
+'use client';
+
 import { Dialog } from '@headlessui/react';
+import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import CrossIcon from '@/shared/assets/icons/cross.svg';
@@ -10,7 +13,7 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     isOpen?: boolean;
-    onClose: () => void;
+    onClose?: () => void;
     classname?: string;
     title?: string;
     description?: string;
@@ -19,16 +22,25 @@ interface ModalProps {
 
 export const Modal = (props: ModalProps) => {
     const { classname, children, title, description, isOpen, onClose } = props;
+    const router = useRouter();
+
+    const handleClose = () => {
+        if (onClose) {
+            onClose();
+        } else {
+            router.back();
+        }
+    };
 
     return (
-        <Dialog open={isOpen} onClose={onClose}>
+        <Dialog open={isOpen} onClose={handleClose}>
             <Dialog.Title></Dialog.Title>
             <Overlay ariaHidden classname={cls.overlay} />
             <div className={cls.container}>
                 <Dialog.Panel className={cls.modal}>
                     <Icon
                         clickable
-                        onClick={onClose}
+                        onClick={handleClose}
                         Svg={CrossIcon}
                         defaultColor
                         classnameClickable={cls.icon}

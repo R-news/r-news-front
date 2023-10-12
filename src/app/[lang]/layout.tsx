@@ -1,12 +1,15 @@
 import '@/global/styles/index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { cookies } from 'next/headers';
+import { ReactNode } from 'react';
 
 import AppProviders from '@/global/providers/AppProviders/ui/AppProviders';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { PageParams } from '@/shared/types/pageParams';
+import { Alert } from '@/shared/ui/Alert';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
@@ -24,11 +27,16 @@ export const metadata: Metadata = {
 };
 
 interface RootLayoutProps {
-    children: React.ReactNode;
+    children: ReactNode;
     params: PageParams;
+    authModal: ReactNode;
 }
 
-export default function RootLayout({ children, params }: RootLayoutProps) {
+export default function RootLayout({
+    children,
+    params,
+    authModal,
+}: RootLayoutProps) {
     const cookieStore = cookies();
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
@@ -47,6 +55,8 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
                         right={<div>some articles</div>}
                     />
                     {/* <Footer lang={params.lang} /> */}
+                    <Alert theme={themeCookie} />
+                    {authModal}
                 </AppProviders>
             </body>
         </html>

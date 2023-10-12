@@ -34,7 +34,7 @@ export const ProfileNav = async (props: ProifleNavProps) => {
         <HStack className={classNames(cls.ProifileNav, {}, [classname])}>
             <nav>
                 <HStack gap="16" as={'ul'}>
-                    <Tabs items={navItems} />
+                    {itemList}
                 </HStack>
             </nav>
         </HStack>

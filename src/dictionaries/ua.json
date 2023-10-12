@@ -7,7 +7,8 @@
         "Write": "Написати"
     },
     "sidebar": {
-        "Home": "Головна",
+        "Home": "Нові",
+        "Popular": "Популярні",
         "Bookmarks": "Закладки",
         "My feed": "Моя стрічка"
     },
@@ -21,7 +22,9 @@
     "profile":{
         "createdAt": "Дата реєстрації",
         "userRating": "Рейтинг",
-        "subscribers": "Пыдписники"
+        "subscribers": "Підписники",
+        "articles": "Статті",
+        "comments": "Комментарі"
     },
     "createArticle": {
         "publish": "Опублікувати",
