@@ -19,7 +19,7 @@ export const useMutationAddBookmark = () => {
             },
             onError: (e: { response: { data: { message: string } } }) => {
                 // errorMessage(e.response.data.message);
-                router.push('/auth');
+                router.push('/user/auth');
             },
         },
     );

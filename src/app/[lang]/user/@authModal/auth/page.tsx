@@ -1,5 +1,5 @@
 import { AuthModal } from '@/entities/Auth';
 
-export default function Login() {
+export default function Auth() {
     return <AuthModal />;
 }

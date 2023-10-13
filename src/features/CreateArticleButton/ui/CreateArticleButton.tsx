@@ -2,7 +2,7 @@
 import { ReactNode, useCallback, useState } from 'react';
 
 import type { langType } from '@/shared/config/i18n/dictionary';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Buttons';
 
 import { CreateArticleModal } from './CreateArticleModal';
 

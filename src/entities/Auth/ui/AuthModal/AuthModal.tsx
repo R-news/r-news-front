@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Buttons';
 import { Modal } from '@/shared/ui/Modal';
 
 import { useAuth } from '../../model/hooks/useAuth';

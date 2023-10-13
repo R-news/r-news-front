@@ -1,6 +1,6 @@
-import { getServerSession } from 'next-auth';
+'use client';
+import { usePathname } from 'next/navigation';
 
-import { authConfig } from '@/shared/config/auth/auth';
 import type { langType } from '@/shared/config/i18n/dictionary';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { HStack } from '@/shared/ui/Stack';
@@ -12,20 +12,14 @@ import cls from './ProfileNav.module.scss';
 
 interface ProifleNavProps {
     classname?: string;
-    activePath?: string;
     langData?: langType['profile'];
+    role: string;
 }
 
-export const ProfileNav = async (props: ProifleNavProps) => {
-    const session = await getServerSession(authConfig);
-    const { classname, activePath, langData } = props;
-
-    const navItems = getProfileNavItems(
-        activePath!,
-        langData,
-        //@ts-ignore
-        session?.user?.role,
-    );
+export const ProfileNav = (props: ProifleNavProps) => {
+    const { classname, langData, role } = props;
+    const pathname = usePathname();
+    const navItems = getProfileNavItems(pathname, langData, role);
 
     const itemList = navItems.map(({ path, text }) => (
         <ProfileNavItem key={path} href={path} text={text} />

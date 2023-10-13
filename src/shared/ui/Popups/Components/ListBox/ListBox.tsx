@@ -3,7 +3,7 @@ import { Fragment, ReactNode, useMemo } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Buttons';
 import { HStack } from '@/shared/ui/Stack';
 
 import arrowDown from '../../../../assets/icons/arrowDown.svg';

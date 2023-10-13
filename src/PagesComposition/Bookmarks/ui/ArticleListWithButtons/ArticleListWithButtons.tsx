@@ -12,11 +12,7 @@ interface ArticlesListWithButtonsProps {
 export const ArticlesListWithButtons = ({
     langData,
 }: ArticlesListWithButtonsProps) => {
-    const { data: { data } = {}, isLoading } = useGetBookmarks();
-
-    if (isLoading) {
-        return <div>Loading</div>;
-    }
+    const { data: { data } = {} } = useGetBookmarks();
 
     return (
         <ArticleList>

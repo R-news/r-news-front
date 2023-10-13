@@ -7,7 +7,7 @@ import type { Locale } from '@/shared/config/i18n/i18n';
 import { getRouteProfile } from '@/shared/const/route';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Buttons';
 import { DropDown } from '@/shared/ui/Popups';
 
 interface AvatarDropDownProps {
@@ -36,7 +36,7 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
     if (!session?.user) {
         return (
             <>
-                <AppLink href={'/auth'}>
+                <AppLink href={'/user/auth'}>
                     <Button>{langData.Login}</Button>
                 </AppLink>
             </>

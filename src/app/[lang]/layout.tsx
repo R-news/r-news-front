@@ -32,11 +32,8 @@ interface RootLayoutProps {
     authModal: ReactNode;
 }
 
-export default function RootLayout({
-    children,
-    params,
-    authModal,
-}: RootLayoutProps) {
+export default function RootLayout(props: RootLayoutProps) {
+    const { children, params, authModal } = props;
     const cookieStore = cookies();
     const themeCookie = cookieStore.get('theme')?.value ?? 'auto';
 
@@ -51,12 +48,16 @@ export default function RootLayout({
                     <Navbar themeCookie={themeCookie} lang={params.lang} />
                     <StickyContentLayout
                         left={<Sidebar lang={params.lang} />}
-                        content={children}
+                        content={
+                            <>
+                                {children}
+                                {authModal}
+                                <Alert theme={themeCookie} />
+                            </>
+                        }
                         right={<div>some articles</div>}
                     />
                     {/* <Footer lang={params.lang} /> */}
-                    <Alert theme={themeCookie} />
-                    {authModal}
                 </AppProviders>
             </body>
         </html>

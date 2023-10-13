@@ -7,7 +7,7 @@ import {
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 
-import { Loader } from '../Loader';
+import { Loader } from '../../Loader';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';

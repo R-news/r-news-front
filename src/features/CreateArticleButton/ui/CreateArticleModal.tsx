@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 
 import { langType } from '@/shared/config/i18n/dictionary';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Buttons';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
 

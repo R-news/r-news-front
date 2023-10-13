@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 import { VStack } from '../Stack';
 import { Card } from './Card';
 

@@ -12,7 +12,7 @@ npm run dev - This command is used to start the frontend project in development 
 
 -   `npm run dev` - Start the frontend project.
 -   `npm run build` - Build in production mode.
--   `npm start - Start` in production mode.
+-   `npm start` - Start in production mode.
 -   `npm run prettier` - Check TypeScript files with a linter.
 -   `npm run lint:ts` - Check TypeScript files with a linter.
 -   `npm run lint:ts:fix` - Fix TypeScript files with a linter.
@@ -37,7 +37,7 @@ Link to documentation - [feature sliced design](https://feature-sliced.design/do
 
 The project uses the Next.js internationalization.
 
-Next.js internationalization - [docs]([https://react.i18next.com/](https://nextjs.org/docs/app/building-your-application/routing/internationalization))
+Next.js internationalization - [docs](<[https://react.i18next.com/](https://nextjs.org/docs/app/building-your-application/routing/internationalization)>)
 
 ---
 

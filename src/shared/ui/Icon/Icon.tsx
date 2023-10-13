@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/helpers/classNames';
 
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 import cls from './Icon.module.scss';
 
 interface IconPropsBase {
