@@ -11,6 +11,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import { ProfileNav } from '../ProfileNav/ProfileNav';
+import { ProfileSubscribedButton } from '../ProfileSubscribedButton/ProfileSubscribedButton';
 import { SettingsLink } from '../SettingsLink/SettingsLink';
 import cls from './ProfileCard.module.scss';
 
@@ -18,14 +19,15 @@ interface ProfileCardProps {
     classname?: string;
     user: any;
     langData: langType['profile'];
+    revalidate: Function;
 }
 
 export const ProfileCard = async (props: ProfileCardProps) => {
-    const { classname, user, langData } = props;
+    const { classname, user, langData, revalidate } = props;
     const session = await getServerSession(authConfig);
 
     //@ts-ignore
-    const isUserProfile = session?.user?.id !== user._id;
+    const isUserProfile = session?.user?.id === user._id;
 
     return (
         <Card padding="16" className={cls.card}>
@@ -35,7 +37,12 @@ export const ProfileCard = async (props: ProfileCardProps) => {
                     <Text text={user.username} textSize="l" />
                 </HStack>
                 <HStack gap="16" align={'center'}>
-                    {isUserProfile && session && <SubscribeButton />}
+                    {!isUserProfile && (
+                        <ProfileSubscribedButton
+                            userId={user._id}
+                            revalidate={revalidate}
+                        />
+                    )}
                     <SettingsLink />
                 </HStack>
             </HStack>
@@ -60,7 +67,7 @@ export const ProfileCard = async (props: ProfileCardProps) => {
                 langData={langData}
                 role={
                     //@ts-ignore
-                    session!.user!.role
+                    session?.user?.role
                 }
             />
         </Card>

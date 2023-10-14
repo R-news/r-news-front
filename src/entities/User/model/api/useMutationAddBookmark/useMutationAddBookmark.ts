@@ -17,9 +17,14 @@ export const useMutationAddBookmark = () => {
                 client.invalidateQueries([QUERY_KEY.USER_DATA]);
                 client.invalidateQueries([QUERY_KEY.USER_BOOKMARKS]);
             },
-            onError: (e: { response: { data: { message: string } } }) => {
-                // errorMessage(e.response.data.message);
-                router.push('/user/auth');
+            onError: (e: {
+                response: { data: { message: string }; status: number };
+            }) => {
+                if (e.response.status === 401) {
+                    router.push('/user/auth');
+                } else {
+                    errorMessage(e.response.data.message);
+                }
             },
         },
     );

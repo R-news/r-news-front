@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames } from '@/shared/lib/helpers/classNames';
 
 import Unsubscribe from '../../../assets/icons/cross.svg';
@@ -10,25 +12,31 @@ import { Button } from '../Button/Button';
 interface SubscribeButtonProps {
     classname?: string;
     isSmall?: boolean;
+    isSubscribed?: boolean;
     onClick?: () => void;
 }
 
 export const SubscribeButton = (props: SubscribeButtonProps) => {
-    const { classname, isSmall, onClick } = props;
+    const { classname, isSmall, onClick, isSubscribed } = props;
 
     if (isSmall) {
         return (
             <Icon
+                onClick={onClick}
                 width={25}
                 height={25}
                 defaultColor
                 clickable
                 isHover
-                Svg={Subscribe}
+                Svg={isSubscribed ? Unsubscribe : Subscribe}
                 className={classname}
             />
         );
     }
 
-    return <Button onClick={onClick}>Subscribe</Button>;
+    return (
+        <Button onClick={onClick}>
+            {isSubscribed ? 'Subscribed' : 'Subscribe'}
+        </Button>
+    );
 };

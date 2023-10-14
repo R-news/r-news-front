@@ -6,23 +6,17 @@ import { QUERY_KEY } from '@/shared/const/queryKeys';
 import { errorMessage } from '@/shared/lib/alerts/error';
 import useAxiosAuth from '@/shared/lib/hooks/useAxiosAuth';
 
-export const useMutationArtilcleLike = (revalidate?: Function) => {
+export const useMutationSubscribeToUser = (revalidate?: Function) => {
     const client = useQueryClient();
     const router = useRouter();
     const axiosAuth = useAxiosAuth();
-    const {
-        mutate: likeArticle,
-        data,
-        isError,
-    } = useMutation(
-        async (articleId: string) =>
-            await axiosAuth.patch(`api/user/like/${articleId}`),
+    const { mutate: subscribe, data } = useMutation(
+        async (profileId: string) => {
+            await axiosAuth.patch(`api/user/subscribe/${profileId}`);
+        },
         {
             onSuccess: () => {
-                client.invalidateQueries([QUERY_KEY.HOME_ARTICLES]);
                 client.invalidateQueries([QUERY_KEY.USER_DATA]);
-                client.invalidateQueries([QUERY_KEY.USER_BOOKMARKS]);
-                client.invalidateQueries([QUERY_KEY.POPULAR_ARTICLES]);
                 if (revalidate) {
                     revalidate();
                 }
@@ -40,8 +34,7 @@ export const useMutationArtilcleLike = (revalidate?: Function) => {
     );
 
     return {
-        likeArticle,
+        subscribe,
         data,
-        isError,
     };
 };

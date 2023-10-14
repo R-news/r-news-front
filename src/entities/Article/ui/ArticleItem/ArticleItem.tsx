@@ -3,9 +3,8 @@ import { ReactNode } from 'react';
 import { langType } from '@/shared/config/i18n/dictionary';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import { ArticleUpdate } from '../../model/types/artilce';
@@ -31,7 +30,6 @@ export const ArticleItem = (props: ArticleItemProps) => {
         views,
         user,
     } = props;
-
     return (
         <Card padding="16" max className={css.card} as="li">
             <VStack as={'article'} gap="8">

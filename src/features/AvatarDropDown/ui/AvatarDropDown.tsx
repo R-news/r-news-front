@@ -47,7 +47,7 @@ export const AvatarDropDown = (props: AvatarDropDownProps) => {
         <DropDown
             withArrow
             items={items}
-            trigger={<Avatar src={user?.userData.avatar} />}
+            trigger={<Avatar src={user?.userData?.avatar} />}
             direction="bottom left"
         />
     );

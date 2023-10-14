@@ -1,5 +1,7 @@
-import React from 'react';
+'use client';
+import { useSession } from 'next-auth/react';
 
+import { useGetUserData, useMutationSubscribeToUser } from '@/entities/User';
 import { getDate } from '@/shared/lib/helpers/getDate/getDate';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -17,6 +19,14 @@ interface ArticleHeaderProps {
 }
 const ArticleHeader = (props: ArticleHeaderProps) => {
     const { avatar, createdAt, username, userId } = props;
+    const { subscribe } = useMutationSubscribeToUser();
+    const session = useSession();
+    const { data: { data } = {} } = useGetUserData();
+
+    //@ts-ignore
+    const isUserprofile = session?.data?.user?.id === userId;
+    const isSubscribed = data?.userData?.subscriptions?.includes(userId);
+
     return (
         <HStack justify={'between'} max>
             <HStack gap="16">
@@ -28,7 +38,13 @@ const ArticleHeader = (props: ArticleHeaderProps) => {
                 </AppLink>
                 <Text text={getDate(createdAt)} className={cls.date} />
             </HStack>
-            <SubscribeButton isSmall />
+            {!isUserprofile && (
+                <SubscribeButton
+                    isSmall
+                    onClick={() => subscribe(userId)}
+                    isSubscribed={isSubscribed}
+                />
+            )}
         </HStack>
     );
 };
